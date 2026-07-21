@@ -6,11 +6,11 @@
 
 **Architecture:** Astro SSG. Builds and glossary terms are YAML files in two content collections, validated by Zod schemas kept in a plain `src/lib/schemas.ts` (so they're unit-testable without the `astro:content` virtual module). Prose fields and table cells are rendered by a small inline renderer that resolves `[[Term]]` against the glossary (link + icon + tooltip) and **throws on unknown terms**, failing the build. Icons are WebP files in `public/glossary-icons/`. Components port the prototype's CSS/markup verbatim to preserve the design.
 
-**Tech Stack:** **Bun** (package manager, script runner, TS runtime), Astro 5, TypeScript, `astro/zod`, `astro/loaders` (`glob`), Vitest (unit tests, run via Bun), `sharp` (icon conversion), `js-yaml` (migration scripts). Deploy: Vercel static.
+**Tech Stack:** **Bun** (package manager, script runner, TS runtime), Astro 5, TypeScript, `astro/zod`, `astro/loaders` (`glob`), Bun's built-in test runner (`bun test`), `sharp` (icon conversion), `js-yaml` (migration scripts). Deploy: Vercel static.
 
 ## Global Constraints
 
-- **Bun** ≥ 1.1 is the package manager, script runner, and TS runtime — use `bun`/`bunx`, never `npm`/`npx`/`node`. **Astro** ≥ 5.0. Content config lives in `src/content.config.ts`.
+- **Bun** ≥ 1.1 is the package manager, script runner, TS runtime, and **test runner** (`bun test`) — use `bun`/`bunx`, never `npm`/`npx`/`node`; no Vitest. **Astro** ≥ 5.0. Content config lives in `src/content.config.ts`.
 - **YAML** for all content entries; **Zod** schemas are the validation contract.
 - **Glossary is shared**: one file per term in `src/content/glossary/`; terms referenced by name/alias via `[[Term]]`.
 - **Strict fail** on unknown `[[term]]` — never render a broken link.
@@ -42,7 +42,7 @@ Phase 1 is complete when **all** of the following hold:
 3. **Linter clean.** `bun run lint:glossary` exits 0 — no duplicate,
    normalized-collision, dup-slug, or missing-icon errors. (Dead-entry *warnings*
    are acceptable.)
-4. **Tests green.** `bun run test` passes (wiki, normalize, schemas, glossary,
+4. **Tests green.** `bun test` passes (wiki, normalize, schemas, glossary,
    inline, lint).
 5. **Full content migration.** All 6 builds + the full glossary (~162 terms,
    ~108 icons) exist as YAML + WebP; **no base64 remains** and nothing references
@@ -111,11 +111,11 @@ tests/
 ### Task 1: Scaffold Astro project + tooling
 
 **Files:**
-- Create: `package.json`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `.gitignore`
+- Create: `package.json`, `astro.config.mjs`, `tsconfig.json`, `.gitignore`
 - Create: `src/pages/index.astro` (placeholder), `src/layouts/Base.astro` (minimal)
 
 **Interfaces:**
-- Produces: a buildable Astro project; `bun run build`, `bun run test` commands.
+- Produces: a buildable Astro project; `bun run build`, `bun test` commands.
 
 - [ ] **Step 1: Create `package.json`**
 
@@ -128,14 +128,14 @@ tests/
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "vitest run",
+    "test": "bun test",
     "lint:glossary": "bun scripts/lint-glossary.mjs"
   },
   "dependencies": {
     "astro": "^5.2.0"
   },
   "devDependencies": {
-    "vitest": "^2.1.0",
+    "@types/bun": "latest",
     "sharp": "^0.33.0",
     "js-yaml": "^4.1.0",
     "typescript": "^5.6.0"
@@ -164,17 +164,7 @@ export default defineConfig({
 }
 ```
 
-- [ ] **Step 4: Create `vitest.config.ts`**
-
-```ts
-import { defineConfig } from 'vitest/config';
-
-export default defineConfig({
-  test: { include: ['tests/**/*.test.ts'], environment: 'node' },
-});
-```
-
-- [ ] **Step 5: Create `.gitignore`**
+- [ ] **Step 4: Create `.gitignore`**
 
 ```
 node_modules/
@@ -183,7 +173,7 @@ dist/
 .vercel/
 ```
 
-- [ ] **Step 6: Create minimal `src/layouts/Base.astro`**
+- [ ] **Step 5: Create minimal `src/layouts/Base.astro`**
 
 ```astro
 ---
@@ -202,7 +192,7 @@ const { title = 'The Kenabres Codex' } = Astro.props;
 </html>
 ```
 
-- [ ] **Step 7: Create placeholder `src/pages/index.astro`**
+- [ ] **Step 6: Create placeholder `src/pages/index.astro`**
 
 ```astro
 ---
@@ -213,17 +203,17 @@ import Base from '../layouts/Base.astro';
 </Base>
 ```
 
-- [ ] **Step 8: Install and verify build**
+- [ ] **Step 7: Install and verify build**
 
 Run: `bun install && bun run build`
 Expected: build completes, `dist/index.html` exists.
 
-- [ ] **Step 9: Verify test runner works**
+- [ ] **Step 8: Verify the test runner works**
 
-Run: `bun run test`
-Expected: "No test files found" (exit 0) — runner is wired.
+Run: `bun test`
+Expected: Bun's test runner runs and reports `0 tests` across 0 files (exit 0) — runner is wired.
 
-- [ ] **Step 10: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
 git add -A && git commit -m "chore: scaffold Astro project and test tooling"
@@ -244,7 +234,7 @@ git add -A && git commit -m "chore: scaffold Astro project and test tooling"
 
 ```ts
 // tests/wiki.test.ts
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'bun:test';
 import { wikiUrl } from '../src/lib/wiki';
 
 describe('wikiUrl', () => {
@@ -261,7 +251,7 @@ describe('wikiUrl', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `bunx vitest run tests/wiki.test.ts`
+Run: `bun test tests/wiki.test.ts`
 Expected: FAIL — cannot find module `../src/lib/wiki`.
 
 - [ ] **Step 3: Implement**
@@ -276,7 +266,7 @@ export function wikiUrl(slug: string): string {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `bunx vitest run tests/wiki.test.ts`
+Run: `bun test tests/wiki.test.ts`
 Expected: PASS (2 tests).
 
 - [ ] **Step 5: Commit**
@@ -300,7 +290,7 @@ git add src/lib/wiki.ts tests/wiki.test.ts && git commit -m "feat: add wikiUrl h
 
 ```ts
 // tests/normalize.test.ts
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'bun:test';
 import { normalizeKey } from '../src/lib/normalize';
 
 describe('normalizeKey', () => {
@@ -316,7 +306,7 @@ describe('normalizeKey', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `bunx vitest run tests/normalize.test.ts`
+Run: `bun test tests/normalize.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -330,7 +320,7 @@ export function normalizeKey(name: string): string {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `bunx vitest run tests/normalize.test.ts`
+Run: `bun test tests/normalize.test.ts`
 Expected: PASS.
 
 - [ ] **Step 5: Commit**
@@ -359,7 +349,7 @@ git add src/lib/normalize.ts tests/normalize.test.ts && git commit -m "feat: add
 
 ```ts
 // tests/schemas.test.ts
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'bun:test';
 import { glossaryEntrySchema, buildSchema } from '../src/lib/schemas';
 
 describe('glossaryEntrySchema', () => {
@@ -405,7 +395,7 @@ describe('buildSchema', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `bunx vitest run tests/schemas.test.ts`
+Run: `bun test tests/schemas.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -489,7 +479,7 @@ export type Build = z.infer<typeof buildSchema>;
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `bunx vitest run tests/schemas.test.ts`
+Run: `bun test tests/schemas.test.ts`
 Expected: PASS (6 tests).
 
 - [ ] **Step 5: Commit**
@@ -584,7 +574,7 @@ git add src/content.config.ts src/content/ && git commit -m "feat: register buil
 
 ```ts
 // tests/glossary.test.ts
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'bun:test';
 import { buildGlossaryIndex, resolveTerm } from '../src/lib/glossary';
 
 const entries = [
@@ -630,7 +620,7 @@ describe('buildGlossaryIndex / resolveTerm', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `bunx vitest run tests/glossary.test.ts`
+Run: `bun test tests/glossary.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -683,7 +673,7 @@ export function resolveTerm(index: GlossaryIndex, raw: string): ResolvedTerm {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `bunx vitest run tests/glossary.test.ts`
+Run: `bun test tests/glossary.test.ts`
 Expected: PASS (6 tests).
 
 - [ ] **Step 5: Commit**
@@ -708,7 +698,7 @@ git add src/lib/glossary.ts tests/glossary.test.ts && git commit -m "feat: add g
 
 ```ts
 // tests/inline.test.ts
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'bun:test';
 import { buildGlossaryIndex } from '../src/lib/glossary';
 import { renderInline } from '../src/lib/inline';
 
@@ -743,7 +733,7 @@ describe('renderInline', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `bunx vitest run tests/inline.test.ts`
+Run: `bun test tests/inline.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -782,7 +772,7 @@ export function renderInline(text: string, index: GlossaryIndex): string {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `bunx vitest run tests/inline.test.ts`
+Run: `bun test tests/inline.test.ts`
 Expected: PASS (4 tests).
 
 - [ ] **Step 5: Commit**
@@ -808,7 +798,7 @@ git add src/lib/inline.ts tests/inline.test.ts && git commit -m "feat: add inlin
 
 ```ts
 // tests/lint-glossary.test.ts
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'bun:test';
 import { lintGlossary } from '../src/lib/lint';
 
 describe('lintGlossary', () => {
@@ -848,7 +838,7 @@ describe('lintGlossary', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `bunx vitest run tests/lint-glossary.test.ts`
+Run: `bun test tests/lint-glossary.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement the pure logic**
@@ -899,7 +889,7 @@ export function lintGlossary(input: {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `bunx vitest run tests/lint-glossary.test.ts`
+Run: `bun test tests/lint-glossary.test.ts`
 Expected: PASS (4 tests).
 
 - [ ] **Step 5: Write the CLI wrapper**

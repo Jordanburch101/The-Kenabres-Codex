@@ -12,7 +12,7 @@ This project uses **Bun** — use `bun`/`bunx`, never `npm`/`npx`/`node`.
 - `bun install` — install dependencies
 - `bun run dev` — local dev server
 - `bun run build` — static build to `dist/` (**fails** on any unknown `[[glossary term]]`)
-- `bun run test` — Vitest unit tests (run via Bun; not `bun test`, which is Bun's own runner)
+- `bun test` — run the unit tests (Bun's built-in test runner)
 - `bun run lint:glossary` — glossary dedup + integrity linter
 - Migration/utility scripts run directly with Bun's native TS support, e.g. `bun scripts/migrate-glossary.mjs`
 
