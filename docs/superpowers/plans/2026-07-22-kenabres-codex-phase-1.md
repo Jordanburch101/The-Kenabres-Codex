@@ -18,6 +18,9 @@
 - **Preserve the prototype's visual design** — port its CSS verbatim; do not restyle.
 - Prototype source of truth for migration: `../wotr-build-guide/index.html` (sibling repo).
 - Single curator; static output only (no backend/DB/auth).
+- **Browser automation** (screenshots, parity diffs, DOM checks): use the **Orca
+  CLI + Orca embedded browser** via the `orca-cli` skill **first**; fall back to
+  Playwright/Computer Use only if the Orca browser is unavailable. (See `CLAUDE.md`.)
 - Commit after every task. Conventional-commit messages.
 
 ---
@@ -1245,9 +1248,11 @@ npm run build && npx astro preview &        # serves dist/ on :4321
 npx http-server ../wotr-build-guide -p 8080 & # serves the prototype
 ```
 
-Using a headless browser (Playwright), screenshot `http://localhost:4321/builds/wenduag`
-and the prototype's Wenduag tab (`http://localhost:8080/index.html`, click the
-Wenduag tab) at **1280px** and **390px** widths, and diff them. **Parity gate:**
+Using the **Orca browser** (via the `orca-cli` skill; fall back to Playwright
+only if the Orca browser is unavailable), screenshot
+`http://localhost:4321/builds/wenduag` and the prototype's Wenduag tab
+(`http://localhost:8080/index.html`, click the Wenduag tab) at **1280px** and
+**390px** widths, and diff them. **Parity gate:**
 hero, badges, video embed + maker credit (top & bottom), stat grid, level table
 (term links + inline icons + hover tooltip), skills, picks, gear (with ⓘ flags),
 mythic, combat, and footnotes are visually indistinguishable. Fix CSS/markup
