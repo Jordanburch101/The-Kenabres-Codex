@@ -7,10 +7,14 @@ collection entry. Design + plan live in `docs/superpowers/specs/` and
 
 ## Commands
 
-- `npm run dev` — local dev server
-- `npm run build` — static build to `dist/` (**fails** on any unknown `[[glossary term]]`)
-- `npm test` — Vitest unit tests
-- `npm run lint:glossary` — glossary dedup + integrity linter
+This project uses **Bun** — use `bun`/`bunx`, never `npm`/`npx`/`node`.
+
+- `bun install` — install dependencies
+- `bun run dev` — local dev server
+- `bun run build` — static build to `dist/` (**fails** on any unknown `[[glossary term]]`)
+- `bun run test` — Vitest unit tests (run via Bun; not `bun test`, which is Bun's own runner)
+- `bun run lint:glossary` — glossary dedup + integrity linter
+- Migration/utility scripts run directly with Bun's native TS support, e.g. `bun scripts/migrate-glossary.mjs`
 
 ## Conventions
 

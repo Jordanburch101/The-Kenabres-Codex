@@ -6,11 +6,11 @@
 
 **Architecture:** Astro SSG. Builds and glossary terms are YAML files in two content collections, validated by Zod schemas kept in a plain `src/lib/schemas.ts` (so they're unit-testable without the `astro:content` virtual module). Prose fields and table cells are rendered by a small inline renderer that resolves `[[Term]]` against the glossary (link + icon + tooltip) and **throws on unknown terms**, failing the build. Icons are WebP files in `public/glossary-icons/`. Components port the prototype's CSS/markup verbatim to preserve the design.
 
-**Tech Stack:** Astro 5, TypeScript, `astro/zod`, `astro/loaders` (`glob`), Vitest (unit tests), `sharp` (icon conversion), `js-yaml` (Node migration scripts). Deploy: Vercel static.
+**Tech Stack:** **Bun** (package manager, script runner, TS runtime), Astro 5, TypeScript, `astro/zod`, `astro/loaders` (`glob`), Vitest (unit tests, run via Bun), `sharp` (icon conversion), `js-yaml` (migration scripts). Deploy: Vercel static.
 
 ## Global Constraints
 
-- **Astro** ≥ 5.0; Node ≥ 18.14. Content config lives in `src/content.config.ts`.
+- **Bun** ≥ 1.1 is the package manager, script runner, and TS runtime — use `bun`/`bunx`, never `npm`/`npx`/`node`. **Astro** ≥ 5.0. Content config lives in `src/content.config.ts`.
 - **YAML** for all content entries; **Zod** schemas are the validation contract.
 - **Glossary is shared**: one file per term in `src/content/glossary/`; terms referenced by name/alias via `[[Term]]`.
 - **Strict fail** on unknown `[[term]]` — never render a broken link.
@@ -37,12 +37,12 @@ Phase 1 is complete when **all** of the following hold:
    with ⓘ flags, mythic block, combat list, and footnotes. Verified by
    side-by-side screenshot comparison at desktop (1280px) and mobile (390px)
    widths — see Task 13, which is a hard gate.
-2. **Strict glossary integrity.** `npm run build` **fails** on any unknown
+2. **Strict glossary integrity.** `bun run build` **fails** on any unknown
    `[[term]]`; no unknown-term escapes ship.
-3. **Linter clean.** `scripts/lint-glossary.mjs` exits 0 — no duplicate,
+3. **Linter clean.** `bun run lint:glossary` exits 0 — no duplicate,
    normalized-collision, dup-slug, or missing-icon errors. (Dead-entry *warnings*
    are acceptable.)
-4. **Tests green.** `npm test` passes (wiki, normalize, schemas, glossary,
+4. **Tests green.** `bun run test` passes (wiki, normalize, schemas, glossary,
    inline, lint).
 5. **Full content migration.** All 6 builds + the full glossary (~162 terms,
    ~108 icons) exist as YAML + WebP; **no base64 remains** and nothing references
@@ -115,7 +115,7 @@ tests/
 - Create: `src/pages/index.astro` (placeholder), `src/layouts/Base.astro` (minimal)
 
 **Interfaces:**
-- Produces: a buildable Astro project; `npm run build`, `npm test` commands.
+- Produces: a buildable Astro project; `bun run build`, `bun run test` commands.
 
 - [ ] **Step 1: Create `package.json`**
 
@@ -129,7 +129,7 @@ tests/
     "build": "astro build",
     "preview": "astro preview",
     "test": "vitest run",
-    "lint:glossary": "node scripts/lint-glossary.mjs"
+    "lint:glossary": "bun scripts/lint-glossary.mjs"
   },
   "dependencies": {
     "astro": "^5.2.0"
@@ -215,12 +215,12 @@ import Base from '../layouts/Base.astro';
 
 - [ ] **Step 8: Install and verify build**
 
-Run: `npm install && npm run build`
+Run: `bun install && bun run build`
 Expected: build completes, `dist/index.html` exists.
 
 - [ ] **Step 9: Verify test runner works**
 
-Run: `npm test`
+Run: `bun run test`
 Expected: "No test files found" (exit 0) — runner is wired.
 
 - [ ] **Step 10: Commit**
@@ -261,7 +261,7 @@ describe('wikiUrl', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run tests/wiki.test.ts`
+Run: `bunx vitest run tests/wiki.test.ts`
 Expected: FAIL — cannot find module `../src/lib/wiki`.
 
 - [ ] **Step 3: Implement**
@@ -276,7 +276,7 @@ export function wikiUrl(slug: string): string {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run tests/wiki.test.ts`
+Run: `bunx vitest run tests/wiki.test.ts`
 Expected: PASS (2 tests).
 
 - [ ] **Step 5: Commit**
@@ -316,7 +316,7 @@ describe('normalizeKey', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run tests/normalize.test.ts`
+Run: `bunx vitest run tests/normalize.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -330,7 +330,7 @@ export function normalizeKey(name: string): string {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run tests/normalize.test.ts`
+Run: `bunx vitest run tests/normalize.test.ts`
 Expected: PASS.
 
 - [ ] **Step 5: Commit**
@@ -405,7 +405,7 @@ describe('buildSchema', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run tests/schemas.test.ts`
+Run: `bunx vitest run tests/schemas.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -489,7 +489,7 @@ export type Build = z.infer<typeof buildSchema>;
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run tests/schemas.test.ts`
+Run: `bunx vitest run tests/schemas.test.ts`
 Expected: PASS (6 tests).
 
 - [ ] **Step 5: Commit**
@@ -557,7 +557,7 @@ summary: Uses [[Deadly Aim]] to verify the pipeline.
 
 - [ ] **Step 4: Verify the build compiles the collections**
 
-Run: `npm run build`
+Run: `bun run build`
 Expected: build succeeds; `.astro/` types generated; no schema errors.
 
 - [ ] **Step 5: Commit**
@@ -630,7 +630,7 @@ describe('buildGlossaryIndex / resolveTerm', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run tests/glossary.test.ts`
+Run: `bunx vitest run tests/glossary.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -683,7 +683,7 @@ export function resolveTerm(index: GlossaryIndex, raw: string): ResolvedTerm {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run tests/glossary.test.ts`
+Run: `bunx vitest run tests/glossary.test.ts`
 Expected: PASS (6 tests).
 
 - [ ] **Step 5: Commit**
@@ -743,7 +743,7 @@ describe('renderInline', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run tests/inline.test.ts`
+Run: `bunx vitest run tests/inline.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement**
@@ -782,7 +782,7 @@ export function renderInline(text: string, index: GlossaryIndex): string {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run tests/inline.test.ts`
+Run: `bunx vitest run tests/inline.test.ts`
 Expected: PASS (4 tests).
 
 - [ ] **Step 5: Commit**
@@ -848,7 +848,7 @@ describe('lintGlossary', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run tests/lint-glossary.test.ts`
+Run: `bunx vitest run tests/lint-glossary.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Implement the pure logic**
@@ -899,7 +899,7 @@ export function lintGlossary(input: {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run tests/lint-glossary.test.ts`
+Run: `bunx vitest run tests/lint-glossary.test.ts`
 Expected: PASS (4 tests).
 
 - [ ] **Step 5: Write the CLI wrapper**
@@ -934,11 +934,11 @@ console.log(`\n${errors} error(s), ${issues.length - errors} warning(s).`);
 process.exit(errors ? 1 : 0);
 ```
 
-> Note: run the script with a TS-aware runner — `npx tsx scripts/lint-glossary.mjs` (add `tsx` to devDependencies), or precompile. If preferred, port `lint.ts`/`normalize.ts` to `.mjs` to avoid the TS import.
+> Note: **Bun runs TypeScript natively**, so `bun scripts/lint-glossary.mjs` imports `../src/lib/lint.ts` directly — no `tsx`/precompile step needed.
 
 - [ ] **Step 6: Verify the CLI runs against seed content**
 
-Run: `npx tsx scripts/lint-glossary.mjs`
+Run: `bun scripts/lint-glossary.mjs`
 Expected: exits 0 (seed `deadly-aim` referenced by `_sample`); may warn about any unreferenced seeds.
 
 - [ ] **Step 7: Commit**
@@ -1018,7 +1018,7 @@ console.log(`Wrote ${terms} glossary terms, ${icons} icons.`);
 
 - [ ] **Step 2: Run the migration**
 
-Run: `npx tsx scripts/migrate-glossary.mjs` (or `node` if the imports are plain JS)
+Run: `bun scripts/migrate-glossary.mjs`
 Expected: `Wrote 162 glossary terms, 108 icons.` (counts from the prototype).
 
 - [ ] **Step 3: Delete the seed `deadly-aim.yaml` if the migration produced its own**
@@ -1027,12 +1027,12 @@ Run: `ls src/content/glossary/deadly-aim.yaml` — keep the migrated one; ensure
 
 - [ ] **Step 4: Lint the migrated glossary**
 
-Run: `npx tsx scripts/lint-glossary.mjs`
+Run: `bun scripts/lint-glossary.mjs`
 Expected: 0 errors (warnings for not-yet-referenced terms are fine until builds are migrated).
 
 - [ ] **Step 5: Verify the build still compiles with the full glossary**
 
-Run: `npm run build`
+Run: `bun run build`
 Expected: success (all entries pass `glossaryEntrySchema`).
 
 - [ ] **Step 6: Commit**
@@ -1115,7 +1115,7 @@ Run: `rm src/content/builds/_sample.yaml`
 
 - [ ] **Step 7: Verify build (glossary index + Prose compile)**
 
-Add a temporary `<Prose text="Take [[Deadly Aim]] &mdash; **early**" />` to `index.astro`, run `npm run build`, confirm the anchor + icon render in `dist/index.html`, then revert the temporary line.
+Add a temporary `<Prose text="Take [[Deadly Aim]] &mdash; **early**" />` to `index.astro`, run `bun run build`, confirm the anchor + icon render in `dist/index.html`, then revert the temporary line.
 
 - [ ] **Step 8: Commit**
 
@@ -1164,7 +1164,7 @@ const order = ['str','dex','con','int','wis','cha'];
 - [ ] **Step 2: Create `StatGrid.astro`** (code above).
 - [ ] **Step 3: Create `LevelTable.astro`** — `<table class="levels">`, headers + per-cell `<Prose as="span">`.
 - [ ] **Step 4: Create `PicksList.astro`, `GearRows.astro`, `MythicBlock.astro`, `CombatList.astro`, `Footnotes.astro`, `BuildHero.astro`** mirroring the prototype markup.
-- [ ] **Step 5: Verify build** — `npm run build` compiles all components (no route yet).
+- [ ] **Step 5: Verify build** — `bun run build` compiles all components (no route yet).
 - [ ] **Step 6: Commit**
 
 ```bash
@@ -1220,7 +1220,7 @@ const { build } = Astro.props;
 </Base>
 ```
 
-- [ ] **Step 2: Verify build** — `npm run build`; expect `dist/builds/…` (none yet until Task 13 adds builds, so 0 pages — that's fine).
+- [ ] **Step 2: Verify build** — `bun run build`; expect `dist/builds/…` (none yet until Task 13 adds builds, so 0 pages — that's fine).
 - [ ] **Step 3: Commit**
 
 ```bash
@@ -1244,8 +1244,8 @@ git add src/pages/builds && git commit -m "feat: add per-build dynamic route"
 Capture the new page and the reference at matched widths and compare:
 
 ```bash
-npm run build && npx astro preview &        # serves dist/ on :4321
-npx http-server ../wotr-build-guide -p 8080 & # serves the prototype
+bun run build && bunx astro preview &        # serves dist/ on :4321
+bunx http-server ../wotr-build-guide -p 8080 & # serves the prototype
 ```
 
 Using the **Orca browser** (via the `orca-cli` skill; fall back to Playwright
@@ -1259,11 +1259,11 @@ mythic, combat, and footnotes are visually indistinguishable. Fix CSS/markup
 ports until they match. **Do not proceed to the other 5 builds until Wenduag
 passes this gate** (it validates the shared components + CSS port once).
 
-- [ ] **Step 3: Lint** — `npx tsx scripts/lint-glossary.mjs`; expect 0 errors. Any `[[term]]` the migration script didn't create fails the `npm run build` (unknown term) — add the missing term via the grab flow (Task 15 skill) or a manual glossary entry.
+- [ ] **Step 3: Lint** — `bun scripts/lint-glossary.mjs`; expect 0 errors. Any `[[term]]` the migration script didn't create fails the `bun run build` (unknown term) — add the missing term via the grab flow (Task 15 skill) or a manual glossary entry.
 - [ ] **Step 4: Repeat Steps 1–3 for `demonslayer`, `seelah`, `ember`, `camellia`, `sosiel`.**
 - [ ] **Step 5: Full build + lint**
 
-Run: `npm run build && npx tsx scripts/lint-glossary.mjs`
+Run: `bun run build && bun scripts/lint-glossary.mjs`
 Expected: 6 build pages emitted; 0 lint errors; dead-entry warnings drop as terms get referenced.
 
 - [ ] **Step 6: Commit** (one commit per build is fine)
@@ -1324,11 +1324,11 @@ git add src/pages/index.astro src/pages/codex && git commit -m "feat: temporary 
 
 - [ ] **Step 1: Confirm static output deploys**
 
-Run: `npm run build` then deploy the repo on Vercel (framework preset: Astro; output `dist/`). Verify `/`, `/builds/wenduag`, `/codex` load and tooltips/icons work.
+Run: `bun run build` then deploy the repo on Vercel (framework preset: Astro; output `dist/`). Verify `/`, `/builds/wenduag`, `/codex` load and tooltips/icons work.
 
 - [ ] **Step 2: Promote `grab.sh`** into `scripts/`, updating its final step to save `public/glossary-icons/<slug>.webp` via `sharp` (matching Task 9).
 
-- [ ] **Step 3: Write the authoring skill** documenting the loop: paste transcript → generate `builds/<slug>.yaml` with `[[terms]]` → `npm run build` (unknown terms fail) → for each missing term, fuzzy-check existing names/aliases, then dispatch the sub-agent grab (verify slug, fetch+`sharp` icon, draft desc) → write `glossary/<term>.yaml` → `lint:glossary` → rebuild → deploy. Reference the sub-agent pattern and `grab.sh`.
+- [ ] **Step 3: Write the authoring skill** documenting the loop: paste transcript → generate `builds/<slug>.yaml` with `[[terms]]` → `bun run build` (unknown terms fail) → for each missing term, fuzzy-check existing names/aliases, then dispatch the sub-agent grab (verify slug, fetch+`sharp` icon, draft desc) → write `glossary/<term>.yaml` → `lint:glossary` → rebuild → deploy. Reference the sub-agent pattern and `grab.sh`.
 
 - [ ] **Step 4: Dry-run the skill** on one small edit (e.g. add a term to an existing build) to confirm the loop.
 

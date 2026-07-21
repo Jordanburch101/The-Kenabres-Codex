@@ -57,6 +57,11 @@ re-platforming, not a redesign.
     at compile time instead of shipping broken.
 - **Hosting:** static output to **Vercel** (current host) or Cloudflare Pages —
   interchangeable; no infra beyond the CDN. Default to Vercel for continuity.
+- **Tooling: Bun** — the package manager, script runner, and TS runtime for the
+  whole project (`bun`/`bunx`, never `npm`/`npx`/`node`). Bun's native TypeScript
+  support runs the migration/lint scripts directly (no `tsx`). Test framework
+  stays **Vitest**, invoked via Bun (`bun run test` / `bunx vitest run`), not
+  Bun's own `bun test` runner.
 
 ## The build schema
 
@@ -266,6 +271,7 @@ footnotes: ["**Level-up increases** into DEX…"]
 ## Locked decisions
 
 - Name: **The Kenabres Codex**.
+- **Bun** as package manager / script runner / TS runtime (not npm); Vitest for tests, run via Bun.
 - **Astro** SSG + **React islands** for interactivity; static host (Vercel/CF).
 - **YAML content collections** + **Zod** schemas.
 - Build schema: **fixed-ish** + generic `picks` + **flexible level-table columns**.
