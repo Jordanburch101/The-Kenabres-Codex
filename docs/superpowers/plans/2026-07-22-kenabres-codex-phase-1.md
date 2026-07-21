@@ -22,6 +22,40 @@
 
 ---
 
+## Success Criteria (Definition of Done)
+
+Phase 1 is complete when **all** of the following hold:
+
+1. **Visual parity — the bar for "looks like the reference."** Each of the 6
+   migrated build pages (`/builds/<slug>`) is **visually indistinguishable** from
+   its corresponding tab in the deployed prototype: hero, badges, video embed +
+   maker credit (top & bottom), ability-score grid, level table (including
+   `[[term]]` links, inline icons, and hover tooltips), skills, picks, gear rows
+   with ⓘ flags, mythic block, combat list, and footnotes. Verified by
+   side-by-side screenshot comparison at desktop (1280px) and mobile (390px)
+   widths — see Task 13, which is a hard gate.
+2. **Strict glossary integrity.** `npm run build` **fails** on any unknown
+   `[[term]]`; no unknown-term escapes ship.
+3. **Linter clean.** `scripts/lint-glossary.mjs` exits 0 — no duplicate,
+   normalized-collision, dup-slug, or missing-icon errors. (Dead-entry *warnings*
+   are acceptable.)
+4. **Tests green.** `npm test` passes (wiki, normalize, schemas, glossary,
+   inline, lint).
+5. **Full content migration.** All 6 builds + the full glossary (~162 terms,
+   ~108 icons) exist as YAML + WebP; **no base64 remains** and nothing references
+   the prototype file at runtime.
+6. **Static deploy.** Builds to `dist/` and deploys on Vercel; `/`, every
+   `/builds/<slug>`, and `/codex` load with working tooltips and icons.
+7. **Repeatable authoring.** The authoring skill exists and a dry-run (add one
+   term to a build) completes the full loop: generate → build-fails-on-missing →
+   grab/enrich → lint → rebuild.
+
+**Explicitly NOT a Phase 1 success condition** (do not block on these): the
+directory homepage with cards/filters, the sidebar rework, and the localStorage
+roster/favorites — Phase 2/3. The Phase 1 homepage is a plain build list.
+
+---
+
 ## File Structure
 
 ```
@@ -1202,9 +1236,23 @@ git add src/pages/builds && git commit -m "feat: add per-build dynamic route"
 - Produces: 6 validated builds rendering at parity with the prototype.
 
 - [ ] **Step 1: Author `wenduag.yaml`** by transcribing the prototype's `id="build-wenduag"` block into the schema, converting every `<a class="wl" href=…>Term</a>` to `[[Term]]` and every ⓘ flag to a `flag:` field. Use the spec's Wenduag example as the shape.
-- [ ] **Step 2: Verify Wenduag renders at parity**
+- [ ] **Step 2: Verify Wenduag renders at parity — HARD GATE**
 
-Run: `npm run build && npx astro preview` → open `/builds/wenduag`. Compare against the deployed prototype tab. Confirm hero, video+credit, stats, level table (with term links + icons), picks, gear, mythic, combat, footnotes all match.
+Capture the new page and the reference at matched widths and compare:
+
+```bash
+npm run build && npx astro preview &        # serves dist/ on :4321
+npx http-server ../wotr-build-guide -p 8080 & # serves the prototype
+```
+
+Using a headless browser (Playwright), screenshot `http://localhost:4321/builds/wenduag`
+and the prototype's Wenduag tab (`http://localhost:8080/index.html`, click the
+Wenduag tab) at **1280px** and **390px** widths, and diff them. **Parity gate:**
+hero, badges, video embed + maker credit (top & bottom), stat grid, level table
+(term links + inline icons + hover tooltip), skills, picks, gear (with ⓘ flags),
+mythic, combat, and footnotes are visually indistinguishable. Fix CSS/markup
+ports until they match. **Do not proceed to the other 5 builds until Wenduag
+passes this gate** (it validates the shared components + CSS port once).
 
 - [ ] **Step 3: Lint** — `npx tsx scripts/lint-glossary.mjs`; expect 0 errors. Any `[[term]]` the migration script didn't create fails the `npm run build` (unknown term) — add the missing term via the grab flow (Task 15 skill) or a manual glossary entry.
 - [ ] **Step 4: Repeat Steps 1–3 for `demonslayer`, `seelah`, `ember`, `camellia`, `sosiel`.**
