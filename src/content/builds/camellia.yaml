@@ -3,6 +3,7 @@ name: Camellia — The Poisoner
 tagline: Shaman · Loremaster · Titan Fighter
 kind: companion
 role: Crowd Control
+featured: 2
 class: Shaman
 tags:
   - crowd-control

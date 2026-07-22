@@ -37,6 +37,7 @@ export const buildSchema = z.object({
   mythicPath: z.string().optional(),
   difficultyToPlay: z.string().optional(),
   difficultyTarget: z.string().optional(),
+  featured: z.number().optional(), // curator rank; lower = higher. Unset ⇒ not featured.
   dlc: z.string().optional(),
   patch: z.string().optional(),
   updated: z.coerce.date().optional(),
