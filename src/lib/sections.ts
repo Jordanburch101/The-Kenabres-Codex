@@ -8,6 +8,8 @@ export interface SectionRef {
 // Canonical build-page sections, in render order. `key` is the Build field whose
 // presence decides whether the section renders. The `id` values MUST match the
 // anchor ids used in src/pages/builds/[id].astro.
+// NOTE: The build template gates each section with {build.<field> && …} and wraps it in
+// <div class="build-anchor" id={SEC.<key>.id}> — the set/order here must stay in sync.
 export const SEC = {
   identity:      { key: 'identity',      id: 'core-identity',     label: 'Core Identity' },
   abilityScores: { key: 'abilityScores', id: 'ability-scores',    label: 'Ability Scores' },

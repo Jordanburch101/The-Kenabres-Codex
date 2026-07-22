@@ -23,11 +23,11 @@ const { title = 'The Kenabres Codex', activeSlug, sections } = Astro.props;
   <body>
     <div class="layout">
       <Rail activeSlug={activeSlug} sections={sections} />
-      <div class="content">
+      <main class="content">
         <Masthead />
         <slot />
         <SiteFooter />
-      </div>
+      </main>
     </div>
     <TermTooltip />
   </body>
