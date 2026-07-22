@@ -1,0 +1,19 @@
+---
+// Mirrors the prototype's `ul.picks` playstyle block (index.html, "How to
+// Fight" / "Combat" sections of the Wenduag / Demon Slayer builds).
+import Prose from './Prose.astro';
+const { combat } = Astro.props; // build.data.combat
+const { bullets, closer } = combat;
+---
+<section class="blk">
+  <p class="eyebrow">Playstyle</p>
+  <h2 class="h">How to Fight</h2>
+  <ul class="picks">
+    {bullets.map((bullet) => (
+      <li><Prose as="span" text={bullet} /></li>
+    ))}
+  </ul>
+  {closer && (
+    <p class="dim" style="margin-top:14px"><Prose as="span" text={closer} /></p>
+  )}
+</section>

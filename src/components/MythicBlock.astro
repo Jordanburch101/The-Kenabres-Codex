@@ -1,0 +1,40 @@
+---
+// Mirrors the prototype's mythic-progression section (index.html: the
+// Wenduag "Ranged-DPS Mythic Picks (1-10)" table, and the Demon Slayer
+// "Azata" mythic-path `.rows` + `.note-box` variant). The schema's `mythic`
+// shape is intro/table/note only (no per-build heading), so this component
+// uses a fixed generic section title; `table.rows` may be either
+// `{lv, cells}` (level-style) or a bare string array (untitled rows).
+import Prose from './Prose.astro';
+const { mythic } = Astro.props; // build.data.mythic
+const { intro, table, note } = mythic;
+---
+<section class="blk">
+  <p class="eyebrow">Mythic Progression</p>
+  <h2 class="h">Mythic Path</h2>
+  {intro && <Prose text={intro} class="dim" />}
+  {table && (
+    <div class="tablewrap">
+      <table class="levels">
+        <thead>
+          <tr>{table.headers.map((h) => <th>{h}</th>)}</tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row) => (
+            Array.isArray(row) ? (
+              <tr>
+                {row.map((cell) => <td><Prose as="span" text={cell} /></td>)}
+              </tr>
+            ) : (
+              <tr>
+                <td class="lv">{row.lv}</td>
+                {row.cells.map((cell) => <td><Prose as="span" text={cell} /></td>)}
+              </tr>
+            )
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+  {note && <div class="note-box"><Prose text={note} /></div>}
+</section>

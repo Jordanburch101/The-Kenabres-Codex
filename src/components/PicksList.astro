@@ -1,0 +1,26 @@
+---
+// Mirrors the prototype's `ul.picks` blocks used for spell/on-hit-effect
+// pick lists (index.html: the Demon Slayer "Divine Spell Picks" section,
+// and the Wenduag "What Every Throw Does" on-hit-effects section).
+//
+// `picks` is an array of groups because a build may have more than one
+// pick-list section (e.g. spells AND on-hit effects); each renders as its
+// own `<section class="blk">`.
+import Prose from './Prose.astro';
+const { picks } = Astro.props; // build.data.picks
+---
+{picks.map((group) => (
+  <section class="blk">
+    <p class="eyebrow">Spells &amp; Picks</p>
+    <h2 class="h">{group.heading}</h2>
+    {group.intro && <Prose text={group.intro} class="dim" />}
+    <ul class="picks">
+      {group.items.map((item) => (
+        <li>
+          {item.tag && <span class="spl">{item.tag}</span>}
+          {' '}<b><Prose as="span" text={item.name} /></b> &mdash; <Prose as="span" text={item.note} />
+        </li>
+      ))}
+    </ul>
+  </section>
+))}
