@@ -64,15 +64,17 @@ const totalUnused = glossary.filter((e) => usedIn(e).length === 0).length;
 ---
 <Base title="Codex — The Kenabres Codex">
   <main class="content"><div class="wrap">
-    <p class="eyebrow">The Kenabres Codex</p>
-    <h1 class="btitle">Codex Index</h1>
-    <p class="dim">
-      Every feat, spell, hex, mythic ability, class, skill and ability referenced
-      across the builds — auto-generated from the glossary, with a reverse
-      lookup of which builds use each term.
-      {totalUnused > 0 && <> {totalUnused}{' '}{totalUnused === 1 ? 'entry is' : 'entries are'} not yet referenced by any build.</>}
-    </p>
-    <p class="dim"><a href="/">← Back to the builds</a></p>
+    <div class="hero">
+      <p class="eyebrow">The Kenabres Codex</p>
+      <h1 class="btitle">Codex Index</h1>
+      <p class="dim">
+        Every feat, spell, hex, mythic ability, class, skill and ability referenced
+        across the builds — auto-generated from the glossary, with a reverse
+        lookup of which builds use each term.
+        {totalUnused > 0 && <> {totalUnused}{' '}{totalUnused === 1 ? 'entry is' : 'entries are'} not yet referenced by any build.</>}
+      </p>
+      <p class="dim"><a href="/">← Back to the builds</a></p>
+    </div>
 
     {CATEGORY_ORDER.filter((cat) => byCategory.has(cat)).map((cat) => {
       const [mark, markClass, label] = CAT_MARK[cat];
