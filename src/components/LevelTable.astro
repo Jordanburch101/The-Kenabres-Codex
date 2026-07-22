@@ -5,11 +5,13 @@
 import Prose from './Prose.astro';
 const { levels } = Astro.props; // build.data.levels
 const { headers, rows, note } = levels;
+// A cell that is just an em-dash placeholder gets the prototype's `.empty`
+// class so it dims, matching the reference level tables.
+const isEmpty = (cell) => ['—', '&mdash;'].includes(String(cell).trim());
 ---
 <section class="blk">
   <p class="eyebrow">Progression</p>
   <h2 class="h">Level-by-Level (1&ndash;20)</h2>
-  {note && <Prose text={note} class="dim" />}
   <div class="tablewrap">
     <table class="levels">
       <thead>
@@ -20,11 +22,12 @@ const { headers, rows, note } = levels;
           <tr>
             <td class="lv">{row.lv}</td>
             {row.cells.map((cell) => (
-              <td><Prose as="span" text={cell} /></td>
+              <td class={isEmpty(cell) ? 'empty' : undefined}><Prose as="span" text={cell} /></td>
             ))}
           </tr>
         ))}
       </tbody>
     </table>
   </div>
+  {note && <Prose text={note} class="dim" />}
 </section>

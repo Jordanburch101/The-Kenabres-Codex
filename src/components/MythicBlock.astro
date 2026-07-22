@@ -8,6 +8,7 @@
 import Prose from './Prose.astro';
 const { mythic } = Astro.props; // build.data.mythic
 const { intro, table, note } = mythic;
+const isEmpty = (cell) => ['—', '&mdash;'].includes(String(cell).trim());
 ---
 <section class="blk">
   <p class="eyebrow">Mythic Progression</p>
@@ -23,12 +24,12 @@ const { intro, table, note } = mythic;
           {table.rows.map((row) => (
             Array.isArray(row) ? (
               <tr>
-                {row.map((cell) => <td><Prose as="span" text={cell} /></td>)}
+                {row.map((cell) => <td class={isEmpty(cell) ? 'empty' : undefined}><Prose as="span" text={cell} /></td>)}
               </tr>
             ) : (
               <tr>
                 <td class="lv">{row.lv}</td>
-                {row.cells.map((cell) => <td><Prose as="span" text={cell} /></td>)}
+                {row.cells.map((cell) => <td class={isEmpty(cell) ? 'empty' : undefined}><Prose as="span" text={cell} /></td>)}
               </tr>
             )
           ))}
