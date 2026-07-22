@@ -20,6 +20,7 @@ import PicksList from '../../components/PicksList.astro';
 import MythicBlock from '../../components/MythicBlock.astro';
 import CombatList from '../../components/CombatList.astro';
 import Footnotes from '../../components/Footnotes.astro';
+import { buildSections, SEC } from '../../lib/sections';
 
 export async function getStaticPaths() {
   const builds = await getCollection('builds');
@@ -27,19 +28,26 @@ export async function getStaticPaths() {
 }
 
 const { build } = Astro.props;
+const sections = buildSections(build);
 ---
-<Base title={build.name}>
-  <main class="content">
-    <div class="wrap">
-      <BuildHero {...build} />
+<Base title={build.name} activeSlug={build.slug} sections={sections}>
+  <div class="wrap">
+    <BuildHero {...build} />
 
-      {build.identity && (
+    {build.identity && (
+      <div class="build-anchor" id={SEC.identity.id}>
         <GearRows gear={build.identity} eyebrow="Core Identity" heading="Who You're Building" />
-      )}
+      </div>
+    )}
 
-      {build.abilityScores && <StatGrid scores={build.abilityScores} />}
+    {build.abilityScores && (
+      <div class="build-anchor" id={SEC.abilityScores.id}>
+        <StatGrid scores={build.abilityScores} />
+      </div>
+    )}
 
-      {build.skills && (
+    {build.skills && (
+      <div class="build-anchor" id={SEC.skills.id}>
         <section class="blk">
           <p class="eyebrow">Skills</p>
           <h2 class="h">Where the Points Go</h2>
@@ -48,19 +56,29 @@ const { build } = Astro.props;
             <div class="note-box"><Prose text={build.skills.note} /></div>
           )}
         </section>
-      )}
+      </div>
+    )}
 
-      {build.levels && <LevelTable levels={build.levels} />}
+    {build.levels && (
+      <div class="build-anchor" id={SEC.levels.id}><LevelTable levels={build.levels} /></div>
+    )}
 
-      {build.picks && <PicksList picks={build.picks} />}
+    {build.picks && (
+      <div class="build-anchor" id={SEC.picks.id}><PicksList picks={build.picks} /></div>
+    )}
 
-      {build.gear && <GearRows gear={build.gear} />}
+    {build.gear && (
+      <div class="build-anchor" id={SEC.gear.id}><GearRows gear={build.gear} /></div>
+    )}
 
-      {build.mythic && <MythicBlock mythic={build.mythic} />}
+    {build.mythic && (
+      <div class="build-anchor" id={SEC.mythic.id}><MythicBlock mythic={build.mythic} /></div>
+    )}
 
-      {build.combat && <CombatList combat={build.combat} />}
+    {build.combat && (
+      <div class="build-anchor" id={SEC.combat.id}><CombatList combat={build.combat} /></div>
+    )}
 
-      {build.footnotes && <Footnotes footnotes={build.footnotes} video={build.video} />}
-    </div>
-  </main>
+    {build.footnotes && <Footnotes footnotes={build.footnotes} video={build.video} />}
+  </div>
 </Base>

@@ -1,7 +1,17 @@
 ---
 import '../styles/global.css';
 import TermTooltip from '../components/TermTooltip.astro';
-const { title = 'The Kenabres Codex' } = Astro.props;
+import Rail from '../components/Rail.astro';
+import Masthead from '../components/Masthead.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import type { SectionRef } from '../lib/sections';
+
+interface Props {
+  title?: string;
+  activeSlug?: string;
+  sections?: SectionRef[];
+}
+const { title = 'The Kenabres Codex', activeSlug, sections } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -11,7 +21,14 @@ const { title = 'The Kenabres Codex' } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div class="layout">
+      <Rail activeSlug={activeSlug} sections={sections} />
+      <main class="content">
+        <Masthead />
+        <slot />
+        <SiteFooter />
+      </main>
+    </div>
     <TermTooltip />
   </body>
 </html>

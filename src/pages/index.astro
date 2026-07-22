@@ -13,16 +13,14 @@ const KIND_LABEL: Record<string, string> = { mc: 'MC', companion: 'Companion', m
 const kindLabel = (k: string) => KIND_LABEL[k] ?? (k.charAt(0).toUpperCase() + k.slice(1));
 ---
 <Base title="The Kenabres Codex">
-  <main class="content"><div class="wrap">
+  <div class="wrap">
     <div class="hero">
-      <p class="eyebrow">Pathfinder: Wrath of the Righteous</p>
-      <h1 class="btitle">The Kenabres Codex</h1>
-      <p class="dim">Companion and mercenary build guides, forged in the ashes of the Worldwound.</p>
+      <p class="eyebrow">Companion &amp; Mercenary Builds</p>
+      <h2 class="btitle">Choose Your Champion</h2>
+      <p class="dim">Guides forged in the ashes of the Worldwound — one page per build, each cross-linked to a shared codex of every feat, spell, and mechanic it uses.</p>
     </div>
 
     <section class="blk">
-      <p class="eyebrow">Builds</p>
-      <h2 class="h">Choose Your Champion</h2>
       <div class="rows">
         {builds.map((b) => (
           <a class="row build-row" href={`/builds/${b.slug}`}>
@@ -40,7 +38,7 @@ const kindLabel = (k: string) => KIND_LABEL[k] ?? (k.charAt(0).toUpperCase() + k
     <p class="dim" style="margin-top: 32px;">
       <a href="/codex">Browse the Codex — every feat, spell &amp; mechanic referenced across these builds →</a>
     </p>
-  </div></main>
+  </div>
 </Base>
 
 <style>

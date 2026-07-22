@@ -131,6 +131,7 @@
     max-width: var(--wrap); margin: 26px auto 60px; padding: 38px 46px 64px;
     position: relative; color: var(--ink);
     background:
+      url("/textures/parchment-vellum.webp") repeat top left / 256px 256px,
       radial-gradient(90% 60% at 15% 8%, rgba(255,251,238,.55), transparent 55%),
       radial-gradient(80% 55% at 92% 96%, rgba(120,92,50,.12), transparent 55%),
       radial-gradient(60% 40% at 60% 50%, rgba(150,120,70,.06), transparent 60%),
@@ -348,12 +349,18 @@
     border-top:1px solid rgba(181,146,74,.22);padding-top:13px;}
   .rail-foot{margin:16px 13px 22px;font-size:11px;font-style:italic;color:#7c6a4a;}
   .content{margin-left:264px;}
+  .nav{text-decoration:none;}
+  .rail-onpage{display:flex;flex-direction:column;}
+  .rail-sec{display:block;padding:4px 13px 4px 22px;margin-left:13px;
+    color:#a89468;font-size:12.5px;text-decoration:none;font-variant:small-caps;letter-spacing:.03em;
+    border-left:1px solid rgba(181,146,74,.18);}
+  .rail-sec:hover{color:#f0dcb4;border-left-color:var(--bronze-br);}
   @media (max-width:860px){
     .rail{position:static;width:auto;height:auto;flex-direction:column;box-shadow:none;border-right:none;
       border-bottom:1px solid rgba(181,146,74,.42);}
     .rail-list{flex-direction:row;flex-wrap:wrap;align-items:stretch;}
     .nav{flex:1 1 auto;}
-    .rail-div,.rail-foot{display:none;}
+    .rail-div,.rail-foot,.rail-onpage{display:none;}
     .content{margin-left:0;}
   }
   .hero .video {
@@ -372,3 +379,9 @@
   .hero .vidcredit a:hover { color: var(--bronze); }
   .footnotes .credit .maker a { color: var(--wine); text-decoration: none; border-bottom: 1px dotted currentColor; }
   .footnotes .credit .maker a:hover { color: var(--bronze); }
+  .site-foot{max-width:var(--wrap);margin:8px auto 44px;padding:18px 24px 0;
+    border-top:1px solid rgba(181,146,74,.28);text-align:center;}
+  .site-foot p{margin:0;color:#8c7c5d;font-size:12.5px;font-style:italic;}
+  .site-foot a{color:#b59a63;text-decoration:none;border-bottom:1px dotted currentColor;font-style:normal;}
+  .site-foot a:hover{color:var(--bronze-br);}
+  .build-anchor{scroll-margin-top:24px;}
