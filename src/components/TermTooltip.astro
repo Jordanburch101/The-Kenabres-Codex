@@ -23,11 +23,18 @@
     const name = (el.textContent || '').trim();
     const desc = el.dataset.desc || '';
     const cat = el.dataset.cat || '';
+    // Prefer the term's real icon (the inline `<img class="ic-in">` already
+    // inside the `.wl` element); fall back to the category glyph when a term
+    // has no icon.
+    const iconEl = el.querySelector('img.ic-in') as HTMLImageElement | null;
+    const iconSrc = iconEl ? iconEl.getAttribute('src') : null;
     const mark = CAT_MARK[cat];
-    const markHtml = mark
+    const badgeHtml = iconSrc
+      ? `<img class="ic" src="${iconSrc}" alt="">`
+      : mark
       ? `<span class="tmk ${mark[1]}">${mark[0]}</span>`
       : '';
-    tip.innerHTML = markHtml + '<b>' + name + '</b><span class="tdesc">' + desc + '</span>';
+    tip.innerHTML = badgeHtml + '<b>' + name + '</b><span class="tdesc">' + desc + '</span>';
     tip.style.display = 'block';
 
     const r = el.getBoundingClientRect();

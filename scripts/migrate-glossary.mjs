@@ -35,7 +35,7 @@ const slugify = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace
 let terms = 0, icons = 0;
 for (const [name, [cat, desc, wikiSlug]] of Object.entries(T)) {
   const slug = slugify(name);
-  const entry = { name, category: CAT[cat] ?? 'ability', desc: desc.replace(/&mdash;/g, '—') };
+  const entry = { name, category: CAT[cat] ?? 'ability', desc: desc.replace(/&mdash;/g, '—').replace(/&ndash;/g, '–').replace(/&minus;/g, '−').replace(/&rarr;/g, '→') };
   if (wikiSlug) entry.wikiSlug = wikiSlug;
 
   if (IC[name]) {
