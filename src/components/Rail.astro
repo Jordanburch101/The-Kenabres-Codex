@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import { groupBuilds, shortName } from '../lib/rail';
+import type { SectionRef } from '../lib/sections';
+
+interface Props {
+  activeSlug?: string;
+  sections?: SectionRef[];
+}
+const { activeSlug, sections = [] } = Astro.props;
+
+const groups = groupBuilds((await getCollection('builds')).map((b) => b.data));
+---
+<aside class="rail" aria-label="Party builds">
+  <div class="rail-head">
+    <p class="rail-kicker">Pathfinder · WOTR</p>
+    <p class="rail-title">Kenabres Codex</p>
+    <div class="rail-rule"></div>
+  </div>
+  <nav class="rail-list">
+    {groups.map((g) => (
+      <>
+        <div class="rail-div">{g.label}</div>
+        {g.builds.map((b) => (
+          <a class={`nav${b.slug === activeSlug ? ' active' : ''}`} href={`/builds/${b.slug}`}>
+            <span class="nav-name">{shortName(b.name)}</span>
+            <span class="nav-role">{b.class} · {b.role}</span>
+          </a>
+        ))}
+      </>
+    ))}
+
+    {sections.length > 0 && (
+      <div class="rail-onpage">
+        <div class="rail-div">On this page</div>
+        {sections.map((s) => (
+          <a class="rail-sec" href={`#${s.id}`}>{s.label}</a>
+        ))}
+      </div>
+    )}
+
+    <div class="rail-div">Reference</div>
+    <a class="nav" href="/codex">
+      <span class="nav-name">The Codex</span>
+      <span class="nav-role">Feats · Spells · Mechanics</span>
+    </a>
+  </nav>
+</aside>
