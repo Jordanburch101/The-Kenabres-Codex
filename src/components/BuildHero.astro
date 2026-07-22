@@ -6,8 +6,10 @@
 // rather than as a sibling section).
 import Prose from './Prose.astro';
 import VideoEmbed from './VideoEmbed.astro';
+import StarButton from './StarButton';
 
 const {
+  slug,
   name,
   tagline,
   role,
@@ -41,6 +43,7 @@ const badgeList = (badges && badges.length ? badges : [
 ]).filter(Boolean);
 ---
 <div class="hero">
+  <StarButton client:load slug={slug} />
   <h2 class="btitle">{title}</h2>
   {subtitle && <p class="subtitle">{subtitle}</p>}
   {badgeList.length > 0 && (
