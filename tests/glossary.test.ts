@@ -40,4 +40,10 @@ describe('buildGlossaryIndex / resolveTerm', () => {
       { name: 'point-blank shot', category: 'feat', desc: 'b', aliases: [] },
     ] as any)).toThrow(/duplicate/i);
   });
+  it('throws when two distinct entries share the same name', () => {
+    expect(() => buildGlossaryIndex([
+      { name: 'Deadly Aim', category: 'feat', desc: 'a', aliases: [] },
+      { name: 'Deadly Aim', category: 'feat', desc: 'b', aliases: [] },
+    ] as any)).toThrow(/duplicate/i);
+  });
 });

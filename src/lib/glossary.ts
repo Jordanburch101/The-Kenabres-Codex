@@ -17,7 +17,7 @@ export function buildGlossaryIndex(entries: GlossaryEntry[]): GlossaryIndex {
     for (const key of [e.name, ...(e.aliases ?? [])]) {
       const nk = normalizeKey(key);
       const existing = index.get(nk);
-      if (existing && existing.name !== e.name) {
+      if (existing && existing !== e) {
         throw new Error(`Glossary duplicate: "${key}" collides with "${existing.name}"`);
       }
       index.set(nk, e);
