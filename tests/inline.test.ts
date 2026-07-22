@@ -29,4 +29,19 @@ describe('renderInline', () => {
   it('throws on an unknown term (build must fail)', () => {
     expect(() => renderInline('[[Made Up Feat]]', idx)).toThrow(/Unknown glossary term/);
   });
+  it('escapes bare angle brackets in prose', () => {
+    const html = renderInline('if a<b and c>d', idx);
+    expect(html).toContain('a&lt;b');
+    expect(html).toContain('c&gt;d');
+    expect(html).not.toContain('<b>');
+    expect(html).not.toContain('<d>');
+  });
+  it('protects data-desc from markdown corruption', () => {
+    const idx2 = buildGlossaryIndex([
+      { name: 'Foo', category: 'feat', desc: 'stacks with *Weapon Focus*', wikiSlug: 'Foo', aliases: [] },
+    ] as any);
+    const html = renderInline('[[Foo]]', idx2);
+    expect(html).toContain('data-desc="stacks with &#42;Weapon Focus&#42;"');
+    expect(html).not.toContain('<i>');
+  });
 });
