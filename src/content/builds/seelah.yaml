@@ -54,7 +54,7 @@ identity:
   - k: Alignment
     v: "**Lawful Good** (Seelah's fixed alignment) — happens to satisfy [[Monk]] (lawful) and good-aligned [[Witch]] cleanly."
   - k: Mythic Path
-    v: "Path is flexible — the tank power comes from **mythic abilities** ([[Last Stand]], Avoidance, Archmage Armor), not a specific path. Pick the path you like."
+    v: "Path is flexible — the tank power comes from **mythic abilities** ([[Last Stand]], [[Avoidance]], Archmage Armor), not a specific path. Pick the path you like."
 levels:
   headers:
     - Lv
@@ -225,7 +225,7 @@ mythic:
           - With this + high AC, Seelah essentially never dies.
       - lv: 2
         cells:
-          - "Mythic Heavy [[Armor Focus]] → Avoidance"
+          - "Mythic Heavy [[Armor Focus]] → [[Avoidance]]"
           - "Adds **½ your STR bonus to AC** (instead of DEX), uncapped. With [[Dragon Disciple]] + buffs STR can hit +20 → **+10 AC**."
       - lv: 3
         cells:
@@ -237,8 +237,8 @@ mythic:
           - "[[Dodge]] = more tanking (preferred). Mythic Critical if you want more damage. Skip other [[Armor Focus]] lines — AC > DR on Unfair."
       - lv: 5
         cells:
-          - "**Abundant Smite** (or [[Master Shapeshifter]])"
-          - "**Abundant Smite** = full-power smites (you have [[Mark of Justice]]). [[Master Shapeshifter]] enables *[[Frightful Aspect]]* from scrolls."
+          - "[[Abundant Smite]] (or [[Master Shapeshifter]])"
+          - "[[Abundant Smite]] = full-power smites (you have [[Mark of Justice]]). [[Master Shapeshifter]] enables *[[Frightful Aspect]]* from scrolls."
       - lv: 6
         cells:
           - Mythic Critical (weapon)
@@ -253,7 +253,7 @@ mythic:
           - Smite the Demon Lords the instant combat starts.
       - lv: 9
         cells:
-          - "**Abundant Smite** / [[Master Shapeshifter]] / Mythic Beast"
+          - "[[Abundant Smite]] / [[Master Shapeshifter]] / Mythic Beast"
           - Whichever of the level-5 pair you skipped (or Mythic Beast).
 combat:
   bullets:
