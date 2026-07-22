@@ -1,0 +1,55 @@
+---
+// Mirrors the prototype's `.hero` block (index.html, `id="build-wenduag"` /
+// `id="build-demonslayer"`): `.btitle`, `.subtitle`, `.badges`, `.howto`,
+// then the video + vidcredit nested inside the same `.hero` (the ported CSS
+// scopes `.video`/`.vidcredit` under `.hero`, so VideoEmbed is rendered here
+// rather than as a sibling section).
+import Prose from './Prose.astro';
+import VideoEmbed from './VideoEmbed.astro';
+
+const {
+  name,
+  tagline,
+  role,
+  class: className,
+  archetype,
+  alignment,
+  mythicPath,
+  difficultyToPlay,
+  difficultyTarget,
+  kind,
+  badges,
+  summary,
+  video,
+} = Astro.props;
+
+const title = tagline ? `${name} — ${tagline}` : name;
+
+const subtitle = [className, archetype ? `${archetype} archetype` : null]
+  .filter(Boolean)
+  .join(' — ');
+
+const kindLabel = kind ? kind.charAt(0).toUpperCase() + kind.slice(1) : null;
+
+const badgeList = (badges && badges.length ? badges : [
+  role && { label: role, style: 'plain' },
+  kindLabel && { label: kindLabel, style: 'plain' },
+  alignment && { label: alignment, style: 'plain' },
+  mythicPath && { label: mythicPath, style: 'plain' },
+  difficultyTarget && { label: `Target: ${difficultyTarget}`, style: 'plain' },
+  difficultyToPlay && { label: `Difficulty to play: ${difficultyToPlay}`, style: 'plain' },
+]).filter(Boolean);
+---
+<div class="hero">
+  <h2 class="btitle">{title}</h2>
+  {subtitle && <p class="subtitle">{subtitle}</p>}
+  {badgeList.length > 0 && (
+    <div class="badges">
+      {badgeList.map((b) => (
+        <span class={b.style && b.style !== 'plain' ? `badge ${b.style}` : 'badge'}>{b.label}</span>
+      ))}
+    </div>
+  )}
+  <Prose text={summary} class="howto" />
+  {video && <VideoEmbed youtubeId={video.youtubeId} creator={video.creator} creatorUrl={video.creatorUrl} />}
+</div>

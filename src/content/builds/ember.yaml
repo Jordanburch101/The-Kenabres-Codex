@@ -1,0 +1,278 @@
+slug: ember
+name: Ember — Laughter & Hellfire
+tagline: Witch · Loremaster · Crossblooded Sorcerer
+kind: companion
+role: Crowd Control
+class: Witch
+tags:
+  - crowd-control
+  - enchantment
+  - aoe-cc
+  - hellfire-ray
+  - charisma-caster
+  - multiclass
+  - party-buffs
+video:
+  youtubeId: "ErpqRegmjCw"
+  creator: cRPG Bro
+badges:
+  - label: Crowd Control
+    style: crim
+  - label: "Spell DC 55+"
+    style: gold
+  - label: Hellfire Ray Nuke
+    style: plain
+  - label: Charisma Caster
+    style: plain
+  - label: Party Buffs
+    style: plain
+summary: "Mass-control the battlefield into submission — mostly by making whole enemy packs **laugh themselves to death** ([[Hideous Laughter]] + **[[Best Jokes]]**) at a spell DC north of 55. When something resists the enchantments, you delete it instead with **[[Hellfire Ray]]**, one of the deadliest single-target spells in the game. Plus solid party buffs on the side. Built via a [[Witch]] → **[[Loremaster]]** core with a one-level **Crossblooded [[Sorcerer]]** splash for fire + enchantment DC."
+abilityScores:
+  cha:
+    value: MAX
+    tag: "= DC & slots"
+    emphasis: hi
+  dex:
+    value: secondary
+    tag: initiative / to-hit
+  con:
+    value: enough
+  str:
+    value: DUMP
+    emphasis: dump
+  int:
+    value: low
+    tag: skill ranks only
+  note: "**Charisma is everything** — it drives spell DC and spell slots, the entire build. Stack it as high as possible via levels and gear. **Dexterity** is secondary — higher initiative and ranged-touch attack rolls for **[[Hellfire Ray]]**. Keep enough **Constitution** to survive a stray hit; dump **Strength**; keep **Intelligence** only for the skill ranks you want."
+skills:
+  main: "Main picks: **[[Persuasion]]** — natural fit for a Charisma character; **[[Use Magic Device]]** — cast scrolls from other classes (e.g. Cleric) for extra support."
+  note: "**Knowledge (World)** *or (Arcana)* — pick one. **World** lets her cook at camp (food buffs are strong; boosted later by [[Skill Focus]]); **Arcana** is fine too. Whichever you choose becomes your [[Loremaster]] Skill-Focus prereq."
+identity:
+  - k: Concept
+    v: "Ember joins at level 3 (you control her from level 4). Levels 1–3 are preset — she starts with **[[Point Blank Shot]]** & **[[Precise Shot]]**, which end up fine for ray spells even though she should never make plain ranged attacks (her hexes are infinite-cast)."
+  - k: Classes
+    v: "**[[Witch]] 9** (hexes + spontaneous arcane) · **[[Loremaster]] 10** (secrets to poach [[Hideous Laughter]] and other class spells + caster level) · **Crossblooded [[Sorcerer]] 1** (fire + enchantment DC)."
+  - k: Win condition
+    v: "**[[Hideous Laughter]]** (poached via [[Loremaster]]) + the **[[Best Jokes]]** mythic ability = AoE stun-lock on whole packs. **[[Hellfire Ray]]** handles anything that resists."
+  - k: Why Loremaster
+    v: "Its \"secrets\" let a witch grab spells she can't normally learn (Wizard's [[Hideous Laughter]], Cleric buffs/heals) and push caster level. Needs **1 metamagic + 1 [[Skill Focus]] (Knowledge)** feat to qualify."
+  - k: Why Crossblooded
+    v: "One level, three payoffs: a normal feat, the **Gold** dragon bloodline (boosts fire → [[Hellfire Ray]]), and the **Fey** bloodline (**+2 DC to compulsion spells** — [[Hideous Laughter]] qualifies). Delays casting by one level, which doesn't matter by then."
+levels:
+  headers:
+    - Lv
+    - Class This Level
+    - Feat
+    - Hex · Key Spells
+  rows:
+    - lv: 4
+      cells:
+        - "[[Witch]]"
+        - —
+        - "Hex: **[[Protective Luck]]** (Unfair) / **[[Evil Eye]]** · *Winter's Grasp*"
+    - lv: 5
+      cells:
+        - "[[Witch]]"
+        - "[[Heighten Spell]] *(metamagic)*"
+        - "*[[Enlarge Person]], [[Glitter Dust]]*"
+    - lv: 6
+      cells:
+        - "[[Witch]]"
+        - —
+        - "Hex: the other of [[Evil Eye]] / [[Protective Luck]] · *[[Stinking Cloud]]*"
+    - lv: 7
+      cells:
+        - "[[Witch]]"
+        - "[[Skill Focus]] (Knowledge) *— [[Loremaster]] prereq*"
+        - "*[[Unbreakable Heart]], [[False Life]]*"
+    - lv: 8
+      cells:
+        - "[[Loremaster]] 1"
+        - —
+        - "Secret: **[[Hideous Laughter]]** · *[[Death Ward]]*"
+    - lv: 9
+      cells:
+        - "[[Witch]]"
+        - "[[Spell Penetration]]"
+        - "Hex: **[[Fortune]]** · *Cure Moderate, [[Remove Curse]]*"
+    - lv: 10
+      cells:
+        - "[[Loremaster]] 2"
+        - —
+        - "*[[Mind Fog]]*"
+    - lv: 11
+      cells:
+        - "[[Witch]]"
+        - "[[Greater Spell Penetration]]"
+        - "Last hex: **Beast's Gift** · *[[Feeblemind]]*"
+    - lv: 12
+      cells:
+        - "[[Loremaster]] 3"
+        - —
+        - "**[[Hellfire Ray]]** *(6th)*"
+    - lv: 13
+      cells:
+        - "[[Sorcerer]] 1 *(Crossblooded)*"
+        - "[[Spell Focus]] (Enchantment) *+ bloodline feat*"
+        - "Bloodlines: **Gold** (fire) + **Fey** (+2 DC) · *[[True Strike]]*"
+    - lv: 14
+      cells:
+        - "[[Loremaster]] 4"
+        - "[[Spell Focus]] (Evocation) *— prereq for [[Spell Specialization]]*"
+        - "*[[Dimension Door]], [[Greater Dispel Magic]]*"
+    - lv: 15
+      cells:
+        - "[[Loremaster]] 5"
+        - "[[Spell Specialization]] → [[Hellfire Ray]]"
+        - "*[[Heal]] / [[Legendary Proportions]] / [[Ice Body]]*"
+    - lv: 16
+      cells:
+        - "[[Loremaster]] 6"
+        - —
+        - "Secret: [[Improved Critical]] (Ray) · Ability ↑ CHA"
+    - lv: 17
+      cells:
+        - "[[Loremaster]] 7"
+        - "[[Bolster Spell]] *(metamagic)*"
+        - "*[[Mind Blank]]*"
+    - lv: 18
+      cells:
+        - "[[Loremaster]] 8"
+        - —
+        - "Rogue secret: Combat Trick → extra crit feat · *[[Resurrection]]*"
+    - lv: 19
+      cells:
+        - "[[Loremaster]] 9"
+        - "Intensified Spell *(metamagic)*"
+        - "*[[Mind Blank]], Communal*"
+    - lv: 20
+      cells:
+        - "[[Loremaster]] 10"
+        - —
+        - "Secret: Cleric spell ([[Divine Power]] / [[Mass Heal]]) · Ability ↑"
+  note: |-
+    Levels 1–3 are preset (joins at 3 with Point Blank / [[Precise Shot]]). Custom feats begin at level 5. All ability increases → CHA. **[[Heighten Spell]]** is the key metamagic — it lets you re-slot low-level control spells ([[Hideous Laughter]], [[Glitter Dust]], Winter's Grasp) at higher levels for more casts and higher DC.
+
+    Feat order is flexible around the DC/penetration lines — take **[[Spell Penetration]]** early (you fight spell-resistant demons before your caster level is high), **[[Spell Focus]] (Enchantment)** once you have [[Hideous Laughter]]. **[[Spell Specialization]] ([[Hellfire Ray]])** only matters until you hit max caster level (~19–20); after that, respec it into more DC.
+mythic:
+  table:
+    headers:
+      - Rank
+      - Pick
+      - Why
+    rows:
+      - lv: 1
+        cells:
+          - "[[Abundant Casting]]"
+          - "No [[Hideous Laughter]] yet (not a [[Loremaster]] until char 8), so bank spell slots — you already have Winter's Grasp / [[Glitter Dust]] to spam."
+      - lv: 2
+        cells:
+          - "[[Best Jokes]] *(via Extra Mythic Ability)*"
+          - "You'll have [[Hideous Laughter]] by now — [[Best Jokes]] makes it hit the **entire** enemy pack. The core of the build."
+      - lv: 3
+        cells:
+          - "[[Improved Abundant Casting]]"
+          - Even more spell slots.
+      - lv: 4
+        cells:
+          - "Mythic [[Spell Penetration]] *or* [[Sorcerous Reflection]]"
+          - "Spell Pen = never fail vs demon SR. [[Sorcerous Reflection]] helps cast heightened [[Hideous Laughter]] faster. Your call."
+      - lv: 5
+        cells:
+          - "[[Greater Abundant Casting]] *(or [[Ascendant Element]]: Fire)*"
+          - "More slots preferred; you'll take [[Ascendant Element]] at rank 7."
+      - lv: 6
+        cells:
+          - "Mythic [[Spell Focus]] (Enchantment)"
+          - "Higher enchantment DC (or [[Sorcerous Reflection]] instead)."
+      - lv: 7
+        cells:
+          - "[[Ascendant Element]]: Fire"
+          - "No enemy resists your [[Hellfire Ray]] anymore — big by this level."
+      - lv: 8
+        cells:
+          - "[[Sorcerous Reflection]] *or* Mythic Critical (Ray)"
+          - "Mythic Critical = huge [[Hellfire Ray]] damage (pairs with the Trickster crit feat)."
+      - lv: 9
+        cells:
+          - "[[Last Stand]]"
+          - "Ember never dies — even to Demon Lords. (Or a metamagic: Bolster / Intensified.)"
+      - lv: 10
+        cells:
+          - Free choice
+          - Only the final boss remains — take whatever's left.
+picks:
+  - heading: Hexes & Spells
+    items:
+      - tag: HEX
+        name: "[[Slumber]]"
+        note: "early MVP — sleep an enemy, bypasses SR, works on demons; ends on damage."
+      - tag: HEX
+        name: "[[Protective Luck]]"
+        note: "enemies roll twice, take worse — essential on Unfair."
+      - tag: HEX
+        name: "[[Evil Eye]]"
+        note: "debuff that sticks 1 round even on a save."
+      - tag: HEX
+        name: "[[Fortune]]"
+        note: "once per rest — save for your carry vs a boss."
+      - tag: HEX
+        name: "Beast's Gift"
+        note: "the fifth and final witch hex (see Level table, level 11)."
+      - tag: CONTROL
+        name: "Winter's Grasp, [[Glitter Dust]], [[Stinking Cloud]]"
+        note: "all bypass spell resistance — your early-game answer before enchantment DC is online — then **[[Hideous Laughter]]** ★, [[Mind Fog]], [[Feeblemind]]."
+      - tag: DAMAGE
+        name: "[[Hellfire Ray]]"
+        note: "★ — scales with caster level (1 ray → up to 3+). Boosted by Bolster & Intensified metamagic, [[Ascendant Element]], and crit feats."
+      - tag: BUFF
+        name: Buffs
+        note: "[[Enlarge Person]], [[Heroism]] / [[Greater Heroism]], [[Death Ward]], (Greater) [[False Life]], [[Legendary Proportions]], [[Ice Body]], [[Mind Blank]] / Communal, [[Divine Power]], [[Foresight]]."
+      - tag: UTILITY
+        name: Utility
+        note: "On-demand healing (Cure X Wounds, [[Heal]], [[Mass Heal]]), [[Remove Curse]] / Disease, [[Resurrection]], [[Dimension Door]], [[Greater Dispel Magic]] (strip boss pre-buffs)."
+      - name: Metamagic that matters
+        note: "**Heighten** (re-slot control spells higher), **Bolster** & **Intensified** ([[Hellfire Ray]] damage — Intensified lifts the 15-dice cap to 20, needs caster level 20). Get Power/Maximize from gear rather than feats."
+gear:
+  - k: Amulet
+    v: "Early: **Amulet of the Blackwater Mirror** (hex DC). Ch.3: **Glass Amulet of Clarity** (mind-affecting DC — includes [[Hideous Laughter]]). Ultimate: **Heartstone of the Night Hag Queen** (+3 DC to all spells; ch.5) — or leave that for the MC and keep the Glass Amulet."
+    flag: "Transcribed 'amulet of black and mirror' — verify; increases hex DC."
+  - k: Armor
+    v: "Any **Haramaki** (no arcane spell failure). Ultimate: **Deadly Grace** (bonus to ranged touch attacks → [[Hellfire Ray]])."
+    flag: "Transcribed 'deadly race' — verify; bonus with ranged touch attacks, which is what Hellfire Ray uses."
+  - k: Robe
+    v: "Early: **Robe of Inevitability** (buy from Woljif's merchant; +2 spell pen). Ultimate: **Robe of the Seven Sins** (highest DC + caster level + spell pen). Alt: **Call of the Fiery Things** (ch.5; big fire damage) if not on another party member."
+    flag: "Robe of Inevitability vendor transcribed 'wji' — likely a specific vendor; verify (+2 spell penetration). 'Call of the Fiery Things' (ch.5 fire-damage robe) name also unverified."
+  - k: Belt
+    v: "DEX belts (initiative + ranged touch), later DEX+CON or all-stats. **Belt of the Last of the First Humans** hugely boosts [[Hellfire Ray]] (usually reserved for the MC)."
+    flag: "Verify exact name — greatly boosts Hellfire Ray damage; often preferred on the main character."
+  - k: Gloves
+    v: "**Twisted Temptation** — top enchantment-DC gloves; its secondary effect is Will-based, matching your best control spells."
+  - k: Head
+    v: "**Headband of Charisma** (highest); ultimately **Darkness Caress** or **Mental Perfection** headbands."
+    flag: "Verify 'Darkness Caress' / 'Mental Perfection' headband names."
+  - k: Cloak
+    v: "Early: **Cloak of Resistance** (highest modifier). Ultimate: **Grand Festival Cloak** (+2 circumstance CHA; ch.5) — the extra +1 DC is minor, so fine to leave for the MC."
+  - k: Rings
+    v: "**Ring of Pyromania** ([[Hellfire Ray]] damage + spell pen), **Chaotic Fascination** (enchantment DC), **Red Salamander** (free fire spells incl. [[Hellfire Ray]] & Fiery Body)."
+    flag: "Verify 'Ring of Pyromania', 'Chaotic Fascination', 'Red Salamander' names/sources."
+  - k: Bracers
+    v: "**Mind Break** — higher enchantment DC."
+    flag: "Transcribed bracers 'mind break' — verify; higher enchantment DC."
+  - k: Staff
+    v: "Early: **Quarterstaff of Coercion** (Will-save DC → [[Glitter Dust]], [[Hideous Laughter]]). Ch.3+: **War Mage** staff (DC to all spells + spell pen) and the **Plague of Madness** Crusade Relic (free empowered+maximized spell once per battle — cast a cantrip 3× pre-battle to proc it)."
+    flag: "Verify 'War Mage' staff and 'Plague of Madness' relic. A newer 'Sage/Major' staff exists but gives less DC and is INT-based, so worse for CHA-caster Ember."
+  - k: Quick Slots
+    v: "**Greater Persistent** + **Greater Quicken** metamagic rods (swift-cast heightened spells; plentiful, incl. the Midnight Isles DLC). **Devouring Lust** ([[Hellfire Ray]] damage, ch.3). **Grandmaster's Rod** (free empower+maximize — combos with Plague of Madness for a second nuke same battle). **Rasmir's Mask** (ch.5). **Pearls of Power** (Arcane Merchant at Drezen, ch.3) & the **Old Grimoire** for 80+ [[Hideous Laughter]] casts per rest."
+    flag: "Rasmir's Mask transcribed 'Ras meir's mask' — verify; ch.5, cast one spell as a free action per round. Old Grimoire transcribed 'old grimo' — verify; grants many low-level spell casts, pushing Hideous Laughter casts past 80/rest."
+combat:
+  bullets:
+    - "**Early game — [[Slumber]].** Sleep an enemy (even pre-battle ambush); it bypasses SR and works on demons. It breaks on damage, so leave the sleeper for last or have melee coup-de-grace it (free attacks nearby, too)."
+    - "**Before ch.3, lean on SR-bypassing control** — Winter's Grasp, [[Glitter Dust]], [[Stinking Cloud]], [[Slumber]] — since your enchantment DC isn't high enough yet to reliably land [[Hideous Laughter]]."
+    - "**[[Protective Luck]] on your tank** before battle (infinite casts). It's short (~12s) but you re-trigger and **extend it out of combat repeatedly** so it's up when the fight starts. Don't bother doing every party member — too tedious."
+    - "**Ch.3 onward — spam [[Hideous Laughter]].** With DC gear + [[Best Jokes]] it hits the whole pack and stun-locks them. [[Hellfire Ray]] anything immune."
+footnotes:
+  - "Class split ([[Witch]] 9 / [[Loremaster]] 10 / [[Sorcerer]] 1) & Crossblooded bloodlines (Gold + Fey)."
+  - "No fixed point-buy (respec companion); all increases → CHA."
+  - "[[Persistent Spell]] feat is Unfair-only / optional (rods replace it)."
+  - "Gear names: Blackwater Mirror amulet, Deadly Grace armor, Robe of Inevitability vendor, Call of the Fiery Things, Belt of the Last of the First Humans, Darkness Caress / Mental Perfection headbands, Pyromania / Chaotic Fascination / Red Salamander rings, Mind Break bracers, War Mage / Plague of Madness / Sage staves, Rasmir's Mask, Old Grimoire."

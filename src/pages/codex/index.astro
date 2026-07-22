@@ -1,0 +1,126 @@
+---
+// Auto-generated Codex index: every glossary entry, grouped by category,
+// each showing its description and a reverse-lookup "used in" list of the
+// builds that reference it. There is no hand-maintained glossary page —
+// this is derived entirely from the `glossary` and `builds` collections.
+//
+// Reverse-lookup normalization intentionally mirrors scripts/lint-glossary.mjs
+// / src/lib/lint.ts: extract `[[term]]` (part before `|`) from each build's
+// serialized data, normalize with `normalizeKey`, and match against every
+// glossary entry's name + aliases (also normalized) so that an alias
+// reference still counts as "used".
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { normalizeKey } from '../../lib/normalize';
+import { wikiUrl } from '../../lib/wiki';
+import type { GlossaryEntry } from '../../lib/schemas';
+import type { Build } from '../../lib/schemas';
+
+const CAT_MARK: Record<GlossaryEntry['category'], [string, string, string]> = {
+  feat: ['⚔', 'm-feat', 'Feats'],
+  spell: ['✦', 'm-spell', 'Spells'],
+  hex: ['☠', 'm-hex', 'Hexes'],
+  mythic: ['★', 'm-myth', 'Mythic Abilities'],
+  class: ['◘', 'm-cls', 'Classes & Archetypes'],
+  skill: ['●', 'm-skill', 'Skills'],
+  ability: ['❖', 'm-abil', 'Abilities'],
+};
+const CATEGORY_ORDER = Object.keys(CAT_MARK) as GlossaryEntry['category'][];
+
+const builds = (await getCollection('builds')).map((b) => b.data);
+const glossary = (await getCollection('glossary')).map((e) => e.data);
+
+// normalized [[term]] key -> builds that reference it
+const usedBy = new Map<string, Build[]>();
+for (const build of builds) {
+  const text = JSON.stringify(build);
+  const refs = new Set<string>();
+  for (const m of text.matchAll(/\[\[([^\]|]+)/g)) {
+    refs.add(normalizeKey(m[1].trim()));
+  }
+  for (const nk of refs) {
+    if (!usedBy.has(nk)) usedBy.set(nk, []);
+    usedBy.get(nk)!.push(build);
+  }
+}
+
+function usedIn(entry: GlossaryEntry): Build[] {
+  const keys = [entry.name, ...(entry.aliases ?? [])].map(normalizeKey);
+  const byslug = new Map<string, Build>();
+  for (const k of keys) {
+    for (const b of usedBy.get(k) ?? []) byslug.set(b.slug, b);
+  }
+  return [...byslug.values()].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+const byCategory = new Map<GlossaryEntry['category'], GlossaryEntry[]>();
+for (const e of glossary) {
+  if (!byCategory.has(e.category)) byCategory.set(e.category, []);
+  byCategory.get(e.category)!.push(e);
+}
+for (const list of byCategory.values()) list.sort((a, b) => a.name.localeCompare(b.name));
+
+const totalUnused = glossary.filter((e) => usedIn(e).length === 0).length;
+---
+<Base title="Codex — The Kenabres Codex">
+  <main class="content"><div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">The Kenabres Codex</p>
+      <h1 class="btitle">Codex Index</h1>
+      <p class="dim">
+        Every feat, spell, hex, mythic ability, class, skill and ability referenced
+        across the builds — auto-generated from the glossary, with a reverse
+        lookup of which builds use each term.
+        {totalUnused > 0 && <> {totalUnused}{' '}{totalUnused === 1 ? 'entry is' : 'entries are'} not yet referenced by any build.</>}
+      </p>
+      <p class="dim"><a href="/">← Back to the builds</a></p>
+    </div>
+
+    {CATEGORY_ORDER.filter((cat) => byCategory.has(cat)).map((cat) => {
+      const [mark, markClass, label] = CAT_MARK[cat];
+      const entries = byCategory.get(cat)!;
+      return (
+        <section class="blk">
+          <p class="eyebrow">
+            <span class={`tmk ${markClass}`}>{mark}</span> {label}
+          </p>
+          <h2 class="h">{label}</h2>
+          <div class="gloss">
+            {entries.map((e) => {
+              const refs = usedIn(e);
+              return (
+                <div class="gitem">
+                  <span class={`tmk ${markClass}`}>{mark}</span>
+                  <span class="gname">
+                    {e.wikiSlug ? (
+                      <a class="wl" href={wikiUrl(e.wikiSlug)} target="_blank" rel="noopener noreferrer">{e.name}</a>
+                    ) : (
+                      <span class="noln">{e.name}</span>
+                    )}
+                  </span>
+                  <span class="gdesc">
+                    {e.desc}
+                    {refs.length > 0 ? (
+                      <>
+                        {' '}— <em>used in:{' '}
+                        {refs.map((b, i) => (
+                          <>
+                            {i > 0 && ', '}
+                            <a href={`/builds/${b.slug}`}>{b.name}</a>
+                          </>
+                        ))}
+                        </em>
+                      </>
+                    ) : (
+                      <> — <em>not referenced by any build</em></>
+                    )}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      );
+    })}
+  </div></main>
+</Base>

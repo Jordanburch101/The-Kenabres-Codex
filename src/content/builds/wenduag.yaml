@@ -1,0 +1,300 @@
+slug: wenduag
+name: Wenduag — The Throwing-Axe Machine Gun
+tagline: Slayer — Spawn Slayer archetype
+kind: companion
+role: Ranged DPS
+class: Slayer
+archetype: Spawn Slayer
+alignment: Chaotic Evil
+mythicPath: Any
+difficultyToPlay: Medium
+difficultyTarget: All difficulties
+tags:
+  - throwing-axe
+  - two-weapon-fighting
+  - sneak-attack
+  - dispel
+  - non-caster
+  - ranged-dps
+video:
+  youtubeId: "-R9s12qkaOM"
+  creator: cRPG Bro
+badges:
+  - label: Ranged DPS
+    style: gold
+  - label: Sneak-Attack Storm
+    style: crim
+  - label: Companion
+    style: plain
+  - label: Chaotic Evil
+    style: plain
+  - label: Any Mythic Path
+    style: plain
+  - label: "Target: All difficulties"
+    style: plain
+  - label: "Difficulty to play: Medium"
+    style: plain
+summary: A rebuild of the fighter-Wenduag into a **[[Slayer]]** who dual-wields **throwing axes**. The Slayer's feat count fuels full two-weapon-fighting *and* the ranged feat chain, while [[Sneak Attack]] and slayer talents pile damage, dispels and debuffs onto every throw. Dual-wielding thrown weapons stacks attacks to roughly **nine per round** — a machine gun that fires hand-axes. More efficient than the pure-fighter version and strong on every difficulty.
+abilityScores:
+  str:
+    value: buff
+    tag: "= damage"
+    emphasis: hi
+  dex:
+    value: MAX
+    tag: to-hit
+    emphasis: hi
+  con:
+    value: solid
+  int:
+    value: low
+    emphasis: dump
+  wis:
+    value: low
+    tag: her default
+    emphasis: dump
+  cha:
+    value: DUMP
+    emphasis: dump
+  note: "**DEX is the star** — it drives your throwing-axe attack rolls (and your extra two-weapon attacks). Pour the level-4 increase and almost every later increase into **DEX**. **Damage comes from STR**, not DEX — throwing axes add your Strength modifier to damage just like composite longbows. Wenduag can reach very high Strength from **size-boosting spells** ([[Enlarge Person]] / [[Legendary Proportions]]) plus belt/helmet gear, so you don't need a huge starting STR — but keep it healthy. **WIS is naturally low**; dump **CHA**."
+skills:
+  main: "Main picks: **[[Perception]]**, **Lore (Nature)**, and **[[Mobility]]** (free value from her high DEX). Leave **Lore (Nature)** to another party member if someone better-suited can carry it — Wenduag's low WIS makes her a poor primary for it."
+  note: "**Third point:** since Wenduag can hit high Strength from size buffs, **[[Athletics]]** is a fine home for it. If no one in your party casts size buffs on her, take **[[Stealth]]** instead."
+identity:
+  - k: Class
+    v: "[[Slayer]] — **[[Spawn Slayer]]** archetype. Grants attack bonuses against **Large, Huge and Gargantuan** enemies — and many of the game's most dangerous demons are exactly that size. This extra to-hit matters because thrown-weapon attackers tend to run lower attack bonus than melee (they can't flank)."
+  - k: Why not Deliverer
+    v: The **Deliverer** archetype's signature ability keys off your *zeal / alignment* — useless on Wenduag, who is **Chaotic Evil** like most of what you fight. **Spawn Slayer** is the pick.
+  - k: Character
+    v: "**Wenduag** is one of the most customizable companions in the game (alongside Seelah's flexibility, Camellia and Lann). She joins early and you set her class from level 1."
+  - k: Alignment
+    v: "**Chaotic Evil** (her default). Fine for a Slayer — no alignment-gated features here."
+  - k: Mythic Path
+    v: "**Any path works** — the mythic picks below are the ranged-DPS abilities/feats regardless of path. One niche exception: the *Sure-Footing* boots are only obtainable on a **Demon** mythic character (see Gear)."
+levels:
+  headers:
+    - Lv
+    - Normal Feat
+    - Slayer Talent
+    - Sneak Attack · Class Feature
+  rows:
+    - lv: 1
+      cells:
+        - "[[Weapon Focus]] (Throwing Axe)"
+        - —
+        - Recruit · set class
+    - lv: 2
+      cells:
+        - —
+        - "Combat Style: [[Two-Weapon Fighting]]"
+        - —
+    - lv: 3
+      cells:
+        - "[[Weapon Focus]] confirmed"
+        - —
+        - 1st die — **1d6**
+    - lv: 4
+      cells:
+        - —
+        - "Combat Trick: [[Improved Initiative]]"
+        - Ability ↑ DEX
+    - lv: 5
+      cells:
+        - "[[Accomplished Sneak Attacker]]"
+        - —
+        - "**2d6** (with the feat)"
+    - lv: 6
+      cells:
+        - —
+        - "Combat Style: [[Improved Two-Weapon Fighting]]"
+        - 3d6
+    - lv: 7
+      cells:
+        - "[[Deadly Aim]]"
+        - —
+        - —
+    - lv: 8
+      cells:
+        - —
+        - "Combat Trick: [[Rapid Shot]]"
+        - —
+    - lv: 9
+      cells:
+        - "[[Improved Critical]] (Throwing Axe)"
+        - —
+        - 4d6
+    - lv: 10
+      cells:
+        - —
+        - "*Advanced* [[Opportunist]]"
+        - Advanced talents unlock
+    - lv: 11
+      cells:
+        - "[[Greater Two-Weapon Fighting]]"
+        - —
+        - —
+    - lv: 12
+      cells:
+        - —
+        - "[[Dispelling Attack]]"
+        - 5d6
+    - lv: 13
+      cells:
+        - "[[Dazzling Display]] *(qualifier)*"
+        - —
+        - —
+    - lv: 14
+      cells:
+        - —
+        - "[[Bleeding Attack]]"
+        - 6d6
+    - lv: 15
+      cells:
+        - "[[Shatter Defenses]]"
+        - —
+        - —
+    - lv: 16
+      cells:
+        - —
+        - "[[Familiar]] (Hare — +initiative)"
+        - —
+    - lv: 17
+      cells:
+        - "[[Double Slice]]"
+        - —
+        - —
+    - lv: 18
+      cells:
+        - —
+        - "Combat Trick: [[Hammer the Gap]]"
+        - —
+    - lv: 19
+      cells:
+        - "[[Improved Precise Shot]]"
+        - —
+        - "[[Improved Quarry]]"
+    - lv: 20
+      cells:
+        - —
+        - free talent
+        - Capstone
+  note: |-
+    **Feat-timing logic:** [[Weapon Focus]] comes before [[Rapid Shot]]/[[Deadly Aim]] because early on your attack bonus is at its lowest and the flat +1 helps most (you're already swimming in attacks from dual-wielding, so the extra-attack feats can wait). [[Deadly Aim]] and [[Rapid Shot]] land once your bonus is high enough to eat the −2. On **Unfair**, toggle them off against high-AC bosses. [[Manyshot]] is **skipped** — it only works with bows, not throwing axes.
+
+    **Multiclass alternative (from level 17):** you already have almost everything Slayer offers, but staying pure earns two more talents, more [[Sneak Attack]], and the standout [[Improved Quarry]] at 19. If you'd rather splash: **1× [[Demon Slayer]]** (Ranger) for +attack/damage vs. demons, then **1–3× [[Vivisectionist]]** ([[Alchemist]]) for extra sneak dice and a DEX mutagen.
+picks:
+  - heading: What Every Throw Does
+    intro: Slayer is a **non-caster**. Your "spell list" is the pile of effects that fire on each of your many hits, plus the buffs you want your party's casters to keep on you.
+    items:
+      - tag: HIT
+        name: "[[Dispelling Attack]]"
+        note: each throwing-axe hit attempts to strip one magic effect off the target, at a caster-level check equal to your **character level** (very high). Comes online just as Chapter 4 demons start arriving buffed to the teeth; with your volume of attacks it shreds enemy buffs fast.
+      - tag: HIT
+        name: "[[Bleeding Attack]]"
+        note: sneak attacks also bleed the target each round; small but free, and it drops Constitution-vulnerable enemies faster.
+      - tag: CHAIN
+        name: "[[Dazzling Display]] → [[Shatter Defenses]]"
+        note: frightened/shaken enemies are treated as flat-footed against you, opening them to sneak attack. Syncs with party casters getting [[Frightful Aspect]] around Chapter 4.
+      - name: Buffs to bring (from party casters)
+        note: size spells — [[Enlarge Person]] and especially [[Legendary Proportions]] — raise her Strength (and therefore throwing-axe damage). Add Haste and any team attack/save buffs. [[Frightful Aspect]] on her (or nearby) helps drive the [[Shatter Defenses]] loop.
+gear:
+  - k: Weapon
+    v: "**Throwing axes**, dual-wielded. Ch.1: ordinary throwing axes or a Finnean throwing-axe form. Ch.2: **Throwing Axe of Silence**. Ch.3: **Fixated Obsession** (stacking damage up to +10 on repeated hits). Ch.4: **Nordic Wilka's Drumming Axe** from the Storyteller."
+    flag: "Ch.2 axe — audio: 'troving acts of Silence,' obtained via the Woljif recruit quest at the Lost Chapel; verify exact name/quest. Ch.3 axe — audio: 'the fixed Obsession' from the Winter Sun boss (stacking damage to +10); also 'Frost's Embrace' with a DC-24 paralysis on first hit; verify exact names/locations. Ch.4 axe — audio: 'Nordic welcome drumming Ax' bought from the Storyteller in Chapter 4; verify exact name."
+  - k: Amulet
+    v: "**Insistent Talisman** — free throwing-axe attack whenever any nearby ally lands an **attack of opportunity**. Excellent alongside an AoO-heavy party."
+    flag: "Audio: 'background consistent stalisman.' Grants a free ranged/throwing attack whenever an ally within a large radius lands an attack of opportunity. Verify exact item name."
+  - k: Armor
+    v: "**Snakeskin** (Treasure of the Midnight Isles DLC) for a **+4 profane DEX** boost. Earlier: the **Web Strider** armor for a DEX morale bonus."
+    flag: "Audio: 'snake skin' from 'The Treasure of the midnight iOS.' Earlier alt: 'web strider' armor for a DEX morale bonus. Verify names/locations."
+  - k: Clothing
+    v: "**Cloth of Heavy Fortification** — 75% chance to ignore crits and sneak attacks; you can find several."
+  - k: Belt
+    v: "**Belt of Physical Perfection** — +6 STR and DEX. Early: a Belt of Dexterity."
+    flag: "Audio: 'physical flow belt,' eventually +6 to STR and DEX. Early on use a plain Belt of Dexterity. Verify exact name."
+  - k: Gloves
+    v: "**Death Dealer's Gloves** for extra sneak-attack damage — *or*, if you keep her pure Slayer, the **Big Game Hunter Gloves** to sicken your [[Quarry]] target and drop its AC."
+    flag: Item names transcribed from audio ('death dealers,' 'big game gloves'). Verify exact names.
+  - k: Boots
+    v: Best DEX boots you can get. The **Sure-Footing** boots (huge boost to her first throw each round) are **Demon-mythic only**.
+    flag: "Audio: 'ironic sacrifices' boots are called the best for DEX characters — verify exact name. 'Sure-Footing' boots (a big first-attack boost) are noted as obtainable only on a Demon mythic character."
+  - k: Helmet
+    v: "**Shy Lady Helmet** — **+4 profane STR** (more throwing-axe damage). Alt: a Headband of Wisdom for her Will save."
+    flag: "Audio: 'shy lady helmet.' Alts mentioned: a Headband of Wisdom for Will saves, or a helmet giving a large Mobility bonus. Verify names."
+  - k: Goggles
+    v: "**Piercing Gaze** — +1 insight to attack and damage vs. demons and other Outsiders."
+  - k: Cloak
+    v: "**Lone Wolf's Cloak** — strong for ranged attackers."
+  - k: Rings
+    v: "**Ring of the Guiding Star** and the **Merciless Shot** ring (+1 to the [[Point Blank Shot]] bonus — throwing axes have exactly the 30 ft range that counts as point-blank)."
+    flag: Ring names transcribed from audio. Verify exact names.
+  - k: Bracers
+    v: "**Bracers of Abrupt Onslaught** — boost [[Sneak Attack]] further; great on anyone who sneak-attacks."
+  - k: Quick Slots
+    v: "**Lucky Dice**, a **Pipe Fox**, and skill-boosting minor pets (Perception / Stealth, etc.) as you prefer."
+mythic:
+  intro: Path-agnostic — take these regardless of which mythic path you choose.
+  table:
+    headers:
+      - Rank
+      - Pick
+      - Why
+    rows:
+      - lv: 1
+        cells:
+          - "[[Cleaving Shot]]"
+          - Kill an enemy and hit nearby ones too — the core efficiency pick for any ranged character.
+      - lv: 2
+        cells:
+          - "[[Mythic Two-Weapon Fighting]]"
+          - Off-hand and main-hand attacks all use your full attack bonus — huge for a dual-wielder. AB-first while you're running Deadly Aim + Rapid Shot penalties.
+      - lv: 3
+        cells:
+          - "[[Distracting Shot]]"
+          - Your hits hit the enemy with a hefty penalty to melee AC — helps your (melee) allies. Preferred over Ranging Shots (which needs you stationary and resets on hit).
+      - lv: 4
+        cells:
+          - "[[Mythic Deadly Aim]]"
+          - Adds damage to *every* attack, crit or not. As a high-BAB Slayer she gets the best return from it — better than [[Mythic Critical]] given the throwing-axe's poor 19–20 crit range.
+      - lv: 5
+        cells:
+          - "[[The Bigger They Are]]"
+          - Bonus vs. Large+ enemies — and it **stacks with Spawn Slayer**, so double value against the big demons.
+      - lv: 6
+        cells:
+          - "[[Mythic Rapid Shot]]"
+          - Erases Rapid Shot's −2 penalty. If your AB is already high enough, you can swap this slot for [[Mythic Critical]] earlier.
+      - lv: 7
+        cells:
+          - "[[Always a Chance]]"
+          - A natural 1 no longer auto-misses — with this many attacks per round you *will* roll 1s, so this saves real damage. (Skip if a Trickster main already grants a similar effect.)
+      - lv: 8
+        cells:
+          - "[[Mythic Improved Initiative]]"
+          - Act first — catch enemies flat-footed for a full round of sneak attacks. (Some DLC enemies are fear-immune, so this, not [[Shatter Defenses]], is your flat-footed source there.)
+      - lv: 9
+        cells:
+          - "[[Lethal Stance]]"
+          - Insurance for the rare times she's hit — you fight the ultimate demon lords by now (and stacked DLC packs). A play-it-safe pick.
+      - lv: 10
+        cells:
+          - "[[Mythic Critical]]"
+          - Take it here if you didn't grab it earlier — or any flex mythic feat.
+  note: "**Also considered:** [[Exposed Vulnerability]] and [[Ranging Shots]] are underwhelming for this build (Exposed Vulnerability only procs on every third hit for weak damage — unlike [[Elemental Barrage]], which scales per rank), and [[Ever Ready]] only helps the single [[Opportunist]] attack of opportunity. Take them only if you run out of better picks."
+combat:
+  bullets:
+    - "**Pre-buff.** Get size spells ([[Legendary Proportions]] / [[Enlarge Person]]) on her for Strength → damage, plus Haste and team buffs."
+    - "**Win initiative.** Her stacked [[Improved Initiative]] (feat + mythic + Hare familiar) usually lets her act first — a full opening round of sneak attacks against flat-footed enemies."
+    - "**Toggle Deadly Aim + Rapid Shot.** On once your attack bonus can eat the −2; **off** against very high-AC bosses on Unfair."
+    - "**Machine-gun.** Dual-wielding throwing axes puts you near **nine attacks a round**; [[Opportunist]] adds an attack whenever an ally strikes an enemy in melee, and the Insistent Talisman adds throws off allied attacks of opportunity."
+    - "**Strip and shred.** Every hit rolls [[Dispelling Attack]] — against a buffed demon your volume of throws peels its defenses off in a round or two."
+    - "**Use [[Improved Quarry]]** (level 19) on bosses — it's a free action, works on any enemy type (demons, angels, and the non-demon Outsiders of the DLCs), and you can re-apply it constantly."
+  closer: "The upshot: a high-volume sneak-attacker that also dispels, debuffs and catches enemies flat-footed — a \"machine gun that fires axes,\" effective on every difficulty."
+footnotes:
+  - "**Level-up increases** into DEX (video: level-4 and most later increases)."
+  - "Sneak Attack timing: first die at level 3, +1d6 every 3 levels; Accomplished Sneak Attacker → 2d6 at level 5."
+  - Weapon Focus (Throwing Axe) exact feat-slot level (video bundles it near level 1–3).
+  - Improved Quarry as a level-19 Slayer feature (video's "improved query") — confirm exact name/level in-game.
+  - Level-20 talent is free choice.
+  - "Throwing-axe names: Throwing Axe of Silence (Ch.2, Woljif recruit / Lost Chapel), Fixated Obsession & Frost's Embrace (Ch.3, Winter Sun), Nordic Wilka's Drumming Axe (Ch.4, Storyteller)."
+  - "Gear names: Insistent Talisman, Snakeskin / Web Strider, Belt of Physical Perfection, Death Dealer's / Big Game Hunter Gloves, DEX boots / Sure-Footing, Shy Lady Helmet, Merciless Shot ring — all transcribed from audio; verify exact names/locations."

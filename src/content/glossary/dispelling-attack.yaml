@@ -1,0 +1,5 @@
+name: Dispelling Attack
+category: ability
+desc: Sneak attacks can trigger a targeted dispel magic on the victim.
+wikiSlug: Dispelling+Attack
+icon: dispelling-attack.webp

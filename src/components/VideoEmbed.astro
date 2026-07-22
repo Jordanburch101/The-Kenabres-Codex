@@ -1,0 +1,23 @@
+---
+// Mirrors the prototype's `.video` / `.vidcredit` markup (index.html, e.g. the
+// Wenduag build block, id="build-wenduag").
+//
+// The prototype used a single-page tab layout, so the iframe carried a lazy
+// `data-src` swapped in on tab activation. Here each build is its own route
+// with no tab-switching, so we set a real `src` directly — the player loads
+// once, on page view.
+const { youtubeId, creator, creatorUrl } = Astro.props;
+const watchUrl = `https://www.youtube.com/watch?v=${youtubeId}`;
+const creditUrl = creatorUrl || watchUrl;
+---
+<div class="video">
+  <iframe
+    src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+    title="Build guide video"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+<p class="vidcredit">Build guide by <b><a href={creditUrl} target="_blank" rel="noopener">{creator}</a></b> &middot; <a href={watchUrl} target="_blank" rel="noopener">Watch on YouTube &#8599;</a></p>

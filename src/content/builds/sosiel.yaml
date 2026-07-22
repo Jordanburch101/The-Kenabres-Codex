@@ -1,0 +1,202 @@
+slug: sosiel
+name: Sosiel — The Domain Lord
+tagline: Cleric (full 20) · Impossible Domain stacking
+kind: companion
+role: Buff / Debuff
+class: Cleric
+mythicPath: Any
+tags:
+  - impossible-domain
+  - party-buffs
+  - save-debuffs
+  - divine-caster
+  - mounted-combat
+  - glaive
+  - unfair-ready
+video:
+  youtubeId: "UCsFwBmh7PU"
+  creator: cRPG Bro
+badges:
+  - label: Party Buffs
+    style: gold
+  - label: Save Debuffs
+    style: crim
+  - label: Glaive + Pet Melee
+    style: plain
+  - label: Full Divine Caster
+    style: plain
+  - label: Unfair-Ready
+    style: plain
+summary: "Your only source of **Domain powers** — and in this game those are difficulty sliders you get to turn down. A finished Sosiel hands the party a *permanent* **Guarded Hearth** zone (+WIS-mod to attack rolls *and* saves), a party-wide **Inspiring Command** (+2 insight to hit & AC), a **Visions of Madness** stack (up to +10 to attack), and a **−10 to enemy saving throws** that makes every crowd-control and save-or-die spell in the party land. He's no buff-bot either: he rides a pet that tanks for him from level 7 and swings a reach **glaive** all game. My main character pulls **+25 to hit from Sosiel alone** — nothing else in the game gives that."
+abilityScores:
+  wis:
+    value: PRIMARY
+    tag: max it — everything scales off this
+    emphasis: hi
+  str:
+    value: serviceable
+    tag: via buffs, not point-buy
+  note: "**Primary — max it.** Higher WIS = bigger Guarded Hearth (+10 late), more uses of Inspiring Command / Visions of Madness, and better spellcasting. Every 4-level bump goes here. By 20 another point in WIS just makes it an *odd* score (wasted) — put it in **Strength** instead (at least it raises party carry capacity). **Exception:** if your main character is a **Trickster**, push **WIS to 29**. Strength is kept serviceable through buffs — he hits hard enough in melee off a glaive without needing raw point-buy STR. Story companion — respec and prioritize. **Wisdom is everything:** it sets the size of his domain-power bonuses (Guarded Hearth = +WIS-mod), how many uses per rest several powers get, and his spell DC/slots. Pour **every** level-up increase into Wisdom."
+skills:
+  main: "**Lore (Religion)** — his most important skill. It's Wisdom-based (so it's naturally high) and lets Sosiel **prevent corruption** during camping events — an annoying party-wide debuff you really want to shut off. **[[Perception]]** — also Wisdom-based, and there's plenty of Perception gear to stack. **[[Athletics]]** (or Lore (Nature)) — Athletics helps shrug off some enemy spell effects; swap to Lore (Nature) if no one else in the party covers it."
+  note: "**[[Persuasion]]** *(optional)* — his background lets Persuasion scale off **Wisdom** (his best stat) instead of Charisma, so he can be your face. Skip it if Daeran, Arueshalae, or your MC already handle dialogue."
+identity:
+  - k: Concept
+    v: "Sosiel joins at **level 6**, so you have levels 7–20 to shape him. Keep him a **full [[Cleric]] to 20** — every domain power scales off cleric level and Wisdom, and you want the maximum of both, plus the full 9th-level divine spell list on top."
+  - k: Class
+    v: "**[[Cleric]] 20** — no multiclassing. He is the party's *only* access to Domains, and Domains are the whole point."
+  - k: Deity / Weapon
+    v: "Sosiel worships **Shelyn**, whose favored weapon is the **glaive** — so he can wield glaives from the start *without* martial weapon proficiency. Glaives are two-handed reach weapons and the game hands you strong ones very early."
+  - k: Role
+    v: "**Buff / debuff engine + secondary melee.** He pre-buffs the party into the stratosphere, debuffs enemy saves so your controllers never miss, and still contributes real melee from a rideable pet."
+  - k: Win condition
+    v: "**[[Impossible Domain]]** (mythic) stacks extra domains onto him — you cherry-pick the four best domain powers in the game: **Guarded Hearth**, **Inspiring Command**, **Visions of Madness**, and **Battle Rage**. See the Mythic section."
+  - k: Mythic Path
+    v: "**Any** — the build lives entirely in domains + mythic *abilities*, so the path itself is free. (One small hook: a **Trickster** main character is the only reason to push his Wisdom to an odd 29 — see Stats.)"
+levels:
+  headers:
+    - Lv
+    - Feat
+    - Why
+  rows:
+    - lv: 7
+      cells:
+        - "[[Boon Companion]]"
+        - Brings the pet from [[Impossible Domain]] (Animal) up to full strength so it can tank and let him ride it immediately.
+    - lv: 8
+      cells:
+        - —
+        - Ability increase → **Wisdom**.
+    - lv: 9
+      cells:
+        - "[[Outflank]]"
+        - Teamwork feat — +4 flanking and bonus attacks for allies on his crits. Great on any melee party.
+    - lv: 11
+      cells:
+        - "[[Improved Critical]] (Glaive)"
+        - Glaives have a poor threat range, but you find so many strong ones that they're still worth the crit boost.
+    - lv: 13
+      cells:
+        - "[[Spell Penetration]]"
+        - So the **Visions of Madness** debuff can pierce enemy spell resistance.
+    - lv: 15
+      cells:
+        - "[[Greater Spell Penetration]]"
+        - Take its **Mythic** version too (via a mythic feat) — together they bypass the SR of *anything*, including Demon Lords.
+    - lv: 17
+      cells:
+        - "[[Improved Initiative]]"
+        - By now you own the best buffs and debuffs — you want to act first to apply them.
+    - lv: 19
+      cells:
+        - Flex
+        - "Anything: [[Lunge]], [[Weapon Focus]] (Glaive), [[Blind Fight]] (great vs concealment later), [[Combat Reflexes]], or [[Power Attack]]."
+    - lv: 20
+      cells:
+        - —
+        - Ability increase → **Strength** (WIS would go odd) — or **WIS 29** if your MC is a Trickster.
+  note: "Regular feats land on odd levels. Ability increases (levels 8/12/16) all go to **Wisdom**. His two starting domains are **Good** and **Luck** (see the Mythic section for their powers); everything else you add comes from mythic [[Impossible Domain]] picks."
+picks:
+  - heading: Divine Spell Picks
+    intro: He's a **full cleric** with the complete divine list to 9th — the domains are the headline, but don't forget he's also a top-tier caster. He isn't an attack caster; spend spells on buffs, heals, and utility.
+    items:
+      - name: Healing
+        note: "**[[Heal]]** and **[[Mass Heal]]** — drop a mass heal in a pinch even mid-buff-routine. Keep [[Resurrection]] on hand."
+      - name: Buffs
+        note: "**[[Divine Power]]** (for his own melee), [[Freedom of Movement]], [[Death Ward]], and [[Delay Poison]] (Communal) — the last one is what lets Camellia's Stinking Cloud not hit your own team."
+      - name: Utility
+        note: "**[[Greater Dispel Magic]]** to strip pre-buffed bosses."
+      - name: Metamagic / Quick Slots
+        note: "**Extend** rods on your longer buffs, plus healing scrolls and rods so casting them never eats your action economy."
+gear:
+  - k: Weapon (Glaive)
+    v: "**Marching Terror** (Chapter 1, first dungeon — fear + bonus damage on hitting a fresh enemy) → upgrade to the **Sower Glaive** (start of Chapter 3 — adamantine, summons demons on kills) → **Mutilated Angel** (Chapter 4–5, final dungeon of *Treasure of the Midnight Isles*): adamantine +5, a flat +5 to attack, more damage vs evil, and a stacking −5 to enemy AC as you hit."
+    flag: "Glaive names and locations transcribed from audio: Marching Terror (Ch1), Sower/Sorrow's Glaive (Ch3), Mutilated Angel (Ch4-5, Treasure of the Midnight Isles). Verify exact names in-game."
+  - k: Robe
+    v: "**Robe of Unspeakable Truth** — the only **+2 circumstance bonus to Wisdom** in the game (stacks with everything), and it combos with the Glasses of Undeniable Truth below. Early on, **Robe of Inevitability** boosts your spell penetration for Visions of Madness."
+    flag: "Robe of Unspeakable Truth (+2 circumstance WIS) and Robe of Inevitability (spell penetration). Verify exact names in-game."
+  - k: Headband
+    v: "Early: any **+Wisdom** headband. Ultimately **Zosiel's Beauty** (Chapter 4) — raises CHA *and* WIS and, crucially, grants the **Allied Spellcaster** teamwork feat as a 10-ft aura to everyone nearby (including the pet), giving big spell-penetration bonuses. It essentially *erases* your SR problems from Chapter 4 on."
+    flag: "Headband name garbled in audio ('Odis/Zor's Beauty') - a Chapter 4 headband granting an Allied Spellcaster aura. Verify exact name in-game."
+  - k: Glasses
+    v: "**Glasses of Undeniable Truth** (*Treasure of the Midnight Isles* DLC) — permanent True Seeing plus a rare **profane bonus to initiative**; combined with the Robe of Unspeakable Truth it also grants a fear aura."
+    flag: "Glasses of Undeniable Truth, from the Treasure of the Midnight Isles DLC. Verify exact name in-game."
+  - k: Amulet
+    v: "Early: whatever. Later: **initiative** amulets — **Wind Breath** or **Amulet of Combat Awareness**. Alternatively **Alaia's Magnifying Amulet** (+Wisdom) if your MC / DC-caster doesn't want it more."
+    flag: "Amulet names transcribed from audio: Wind Breath, Amulet of Combat Awareness, Alaia's Magnifying Amulet. Verify in-game."
+  - k: Armor
+    v: "**Chainmail of Dragonfly** — once per rest, buffs the whole party (including pets) with a +1 insight bonus to **Dexterity** for a minute; save it for boss fights. Alts: **Chainmail of Comraderie** or the **Life Infuser Breastplate**, though those are better on a pure DPS."
+    flag: "Armor names transcribed from audio: Chainmail of Dragonfly, Chainmail of Comraderie, Life Infuser Breastplate. Verify in-game."
+  - k: Cloak
+    v: "**Cloak of Resistance** (highest modifier you have) → **Cloak of Sacred Studies** (big Lore (Religion) bonus). Also **Celestial Protection** (buy from the Drezen merchant in Chapter 3) for resistance vs demons + Lore (Religion)."
+    flag: "Cloak names transcribed from audio: Cloak of Sacred Studies, Celestial Protection (Drezen merchant, Ch3). Verify in-game."
+  - k: Rings
+    v: "**Clemency of the Shadows Crusade** relic — a party-wide aura granting extra attacks of opportunity and stagger-on-crit (busted with Outflank); it even summons spiders when an ally drops. Pair with the **Ring of Summons** (+damage/saves vs chaotic creatures & demons) or **Ring of Imminent Demise** (two-handed weapons)."
+    flag: "Ring names transcribed from audio: Clemency of the Shadows Crusade relic, Ring of Summons, Ring of Imminent Demise. Verify in-game."
+  - k: Belt
+    v: "**Belt of Strength** early → **Strength & Dexterity** or **Physical Perfection** later."
+  - k: Other slots
+    v: "**Bracers:** **Clear Purpose** (cast healing without provoking). **Gloves / Boots:** flexible — nothing is essential for him. **Quick slots:** Extend rods, healing scrolls/rods, and give him the **Tome of Wisdom +2** — he needs it most (Camellia is the only real competitor)."
+mythic:
+  intro: This is the build. Nearly every rank is an **[[Impossible Domain]]** pick, cherry-picking the strongest domain powers in the game. **Extra Mythic Ability** at rank 2 buys you a second pick that rank.
+  table:
+    headers:
+      - Rank
+      - Pick
+      - Payoff
+    rows:
+      - lv: 1
+        cells:
+          - "[[Impossible Domain]] → Animal"
+          - A pet, as early as possible — it tanks for him and he rides it from level 7. Nothing else gives more this early.
+      - lv: 2
+        cells:
+          - "Extra Mythic Ability + [[Impossible Domain]] → Community"
+          - "**Guarded Hearth** (get it at level 8): a permanent zone giving all allies & pets inside it **+WIS-mod to attack rolls and saves** (up to +10 late) — and it *can't be dispelled*. Also **Calming Touch**, a free heal that removes fatigue."
+      - lv: 3
+        cells:
+          - "[[Impossible Domain]] → Nobility"
+          - "**Inspiring Command**: party-wide **+2 insight** to attack rolls and AC. Insight bonuses are rare, and it has multiple uses per rest (scales with WIS mod)."
+      - lv: 4
+        cells:
+          - "[[Impossible Domain]] → Madness"
+          - "**Visions of Madness**: buff one of attack/saves/skills by **half cleric level** (+10 max) while debuffing the other two — or aim it at an *enemy* to slap **−10 on their saves**. That's what makes your party's crowd control and death spells always land. Needs to beat SR → hence the Spell Penetration feats."
+      - lv: 5
+        cells:
+          - "[[Domain Zealot]]"
+          - Cast *any* domain power as a **swift action**. Turns pre-buffing into a machine gun and lets you debuff mid-fight while still attacking or casting. The linchpin of the whole build.
+      - lv: 6
+        cells:
+          - Mythic Spell Penetration
+          - With the normal + greater versions from level-up, you now pierce the spell resistance of *anything* — Demon Lords included.
+      - lv: 7
+        cells:
+          - "[[Impossible Domain]] → War"
+          - "A bonus combat feat (he's feat-starved) plus **Battle Rage**: +half-cleric-level **damage** to one ally (1 round — use it with Domain Zealot). Alts: [[Ever Ready]], [[Abundant Casting]], or Mythical Beast."
+      - lv: 8
+        cells:
+          - Mythic Initiative
+          - Act before the enemies so your buffs/debuffs are already up when the fight starts.
+      - lv: 9
+        cells:
+          - "[[Last Stand]] (flex)"
+          - Pure survival — excellent against the toughest enemies on the hardest difficulties.
+      - lv: 10
+        cells:
+          - Flex
+          - Mythic Weapon Focus, Mythic Power Attack, or Mythic Armor Focus for more output. (Mythic Critical is weak on low-threat glaives.)
+  note: "**His two starting domains — Good & Luck — are already excellent:** **Touch of Good** (a sacred bonus of half your cleric level to a creature's attacks, skills, abilities *and* saves — +10, but only 1 round, so use it in combat with Domain Zealot), **Holy Lance** (adds the Holy property to an ally's weapon), **Divine Fortune** (roll d20s twice and take the better for up to 10 rounds — pre-buff on Sosiel before bosses) and **Bit of Luck** (the 1-round version you can give any ally)."
+combat:
+  bullets:
+    - "**Ride the pet.** From level 7, Sosiel rides his companion — enemies target the *pet*, so his own AC stops mattering."
+    - "**Pre-buff the slow powers.** Most domain powers are full-round actions until Domain Zealot. Drop **Guarded Hearth**, **Inspiring Command**, and **Divine Fortune** *before* the fight — their durations are long enough that it's free."
+    - "**Ambush with Guarded Hearth.** Turn on autopause \"pause when enemy spotted,\" then place the Guarded Hearth zone right on the enemy pack. Keep the cast inside the yellow ring or Sosiel walks forward and triggers the fight early. It can't be dispelled — when combat starts, your whole party is already standing in it."
+    - "**After Domain Zealot (Mythic 5): buff like a machine gun.** **Visions of Madness** only lasts 3 rounds, so pre-buff it by pausing, casting on an ally, and pressing **V** (instantly re-pauses) — do this for each ally and the timer barely ticks. Or, mid-fight, aim it at an enemy to crush their saves while you still attack."
+    - "**The stack.** On a single target you can layer **Touch of Good** (+10) + **Visions of Madness** (+10) + **Guarded Hearth** (~+13) = **~+30 from Sosiel alone**, on top of everyone else's buffs."
+    - "**Save resources for bosses.** Guarded Hearth (1/rest) and Divine Fortune are boss-fight tools — don't burn them on trash packs."
+footnotes:
+  - "**Sosiel** worships **Shelyn**; the glaive is her favored weapon (grants proficiency)."
+  - "**Point-buy** spread not stated in the video; Wisdom-first is the recommendation."
+  - "**Feat ordering** vs. respec (Mythic 1 → Boon Companion at 7, or Outflank at 7 / Boon Companion at 9)."
+  - "**Glaives**: Marching Terror, Sower Glaive, Mutilated Angel (names / locations)."
+  - "**Gear names**: Robe of Unspeakable Truth / Inevitability, Zosiel's Beauty, Glasses of Undeniable Truth, initiative amulets, Chainmail of Dragonfly, cloaks, and the Clemency of the Shadows relic."

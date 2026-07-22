@@ -1,0 +1,66 @@
+---
+// Per-build page: renders one static route per entry in the `builds`
+// collection at /builds/<slug>, composing the Task-11 section components in
+// the prototype's canonical order (index.html, `.build` blocks). Sections
+// are only rendered when their underlying data is present, since not every
+// build populates every optional field.
+//
+// NOTE: BuildHero already renders the video/credit nested inside `.hero`
+// (the ported CSS scopes `.hero .video` / `.hero .vidcredit` as descendant
+// selectors), so this route must not render VideoEmbed again — doing so
+// would duplicate the player.
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BuildHero from '../../components/BuildHero.astro';
+import GearRows from '../../components/GearRows.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import Prose from '../../components/Prose.astro';
+import LevelTable from '../../components/LevelTable.astro';
+import PicksList from '../../components/PicksList.astro';
+import MythicBlock from '../../components/MythicBlock.astro';
+import CombatList from '../../components/CombatList.astro';
+import Footnotes from '../../components/Footnotes.astro';
+
+export async function getStaticPaths() {
+  const builds = await getCollection('builds');
+  return builds.map((b) => ({ params: { id: b.data.slug }, props: { build: b.data } }));
+}
+
+const { build } = Astro.props;
+---
+<Base title={build.name}>
+  <main class="content">
+    <div class="wrap">
+      <BuildHero {...build} />
+
+      {build.identity && (
+        <GearRows gear={build.identity} eyebrow="Core Identity" heading="Who You're Building" />
+      )}
+
+      {build.abilityScores && <StatGrid scores={build.abilityScores} />}
+
+      {build.skills && (
+        <section class="blk">
+          <p class="eyebrow">Skills</p>
+          <h2 class="h">Where the Points Go</h2>
+          <Prose text={build.skills.main} />
+          {build.skills.note && (
+            <div class="note-box"><Prose text={build.skills.note} /></div>
+          )}
+        </section>
+      )}
+
+      {build.levels && <LevelTable levels={build.levels} />}
+
+      {build.picks && <PicksList picks={build.picks} />}
+
+      {build.gear && <GearRows gear={build.gear} />}
+
+      {build.mythic && <MythicBlock mythic={build.mythic} />}
+
+      {build.combat && <CombatList combat={build.combat} />}
+
+      {build.footnotes && <Footnotes footnotes={build.footnotes} video={build.video} />}
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,21 @@
+---
+// Mirrors the prototype's `.stats` block (index.html, "Ability Scores" /
+// "Priorities" section of the Wenduag / Demon Slayer builds).
+import Prose from './Prose.astro';
+const { scores } = Astro.props; // build.data.abilityScores
+const order = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+---
+<section class="blk">
+  <p class="eyebrow">Ability Scores</p>
+  <h2 class="h">Priorities</h2>
+  <div class="stats">
+    {order.map((k) => scores[k] && (
+      <div class={`stat ${scores[k].emphasis ?? ''}`}>
+        <span class="abbr">{k[0].toUpperCase() + k.slice(1)}</span>
+        <span class="num">{scores[k].value}</span>
+        {scores[k].tag && <span class="tag">{scores[k].tag}</span>}
+      </div>
+    ))}
+  </div>
+  {scores.note && <Prose text={scores.note} class="dim" />}
+</section>

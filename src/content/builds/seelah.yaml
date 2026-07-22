@@ -1,0 +1,274 @@
+slug: seelah
+name: Seelah — The Unbreakable Wall
+tagline: Paladin · Witch · Monk · Dragon Disciple · Fighter (Mutation Warrior)
+kind: companion
+role: Tank
+class: Paladin
+race: Human
+alignment: Lawful Good
+mythicPath: Any
+difficultyToPlay: Low
+difficultyTarget: Unfair
+tags:
+  - heavy-armor
+  - tank
+  - high-ac
+  - multiclass
+  - mark-of-justice
+  - unfair-ready
+video:
+  youtubeId: "v-y4dftS83A"
+  creator: cRPG Bro
+badges:
+  - label: Heavy Armor Tank
+    style: crim
+  - label: "100+ AC (≈130 in combat)"
+    style: gold
+  - label: "Human · Lawful Good"
+    style: plain
+  - label: 5-Class Multiclass
+    style: plain
+  - label: Unfair-Ready
+    style: plain
+summary: "The classic tank done to its extreme: full plate, longsword, and shield, stacked to **over 100 AC** (≈130+ mid-combat) with enormous saving throws to shrug off enemy spells. A one-level **[[Witch]]** dip and **[[Dragon Disciple]]** feed natural-armor and Strength that the new **Mythic Heavy [[Armor Focus]]** converts straight into AC. Still hits hard enough for Smite/[[Outflank]] support and carries the party-wide [[Mark of Justice]] — the ultimate wall at every point of an Unfair run."
+abilityScores:
+  cha:
+    value: PRIMARY
+    tag: level-ups here
+    emphasis: hi
+  str:
+    value: strong alt
+    tag: atk/dmg/AC
+    emphasis: hi
+  note: "**Charisma** is the primary level-up stat — best synergy with the top [[Paladin]] abilities: [[Smite Evil]] and especially **[[Mark of Justice]]** (party-wide). Put your +1-every-4-levels increases here. **Strength** is a strong alternative — feeds attack, damage, *and* AC later (Mythic Avoidance adds ½ your STR bonus to AC). [[Dragon Disciple]] + mutagen push STR high. Keep enough CON/DEX for a tank; don't lower Intelligence to the point you lose the skill ranks you need (UMD, [[Mobility]], [[Athletics]], Knowledge Arcana). Seelah is a story companion (respec her at the start), so the video gives priorities and level-up increases rather than a fixed point-buy."
+skills:
+  main: "**[[Use Magic Device]]** — the priority. Lets Seelah cast from scrolls: buff, heal, revive allies, and proc *[[Frightful Aspect]]* (see Combat/Gear). **[[Mobility]]** — just **3 ranks** for the higher AC bonus while Fighting Defensively; after that, stop. **Knowledge (Arcana)** — **5 ranks** to qualify for [[Dragon Disciple]] (can be delayed until just before you take it)."
+  note: "**[[Athletics]]** — dump the rest here (high STR; avoids some [[Athletics]]-check failures)."
+identity:
+  - k: Concept
+    v: "A **[[Paladin]]** base spliced with precise one- and few-level dips, each earning its keep in AC. The class **order** matters — follow the level table exactly."
+  - k: Classes
+    v: "**[[Paladin]] 11** (core) · **Stigmatized [[Witch]] 1** (natural-AC dip + arcane casting) · **Traditional [[Monk]] 1** (saves + [[Crane Style]]) · **[[Dragon Disciple]] 4** (STR + natural AC) · **[[Fighter]] / [[Mutation Warrior]] 3** (bonus feats + mutagen)."
+  - k: Why the dips
+    v: "**[[Witch]]**: nothing gives more early AC per level (lizard familiar + hex + ring). Stigmatized is CHA-based ([[Paladin]]'s stat) and spontaneous arcane — which qualifies you for **[[Dragon Disciple]]**. **[[Monk]]**: best-in-class saves from one level + unlocks [[Crane Style]]. **[[Dragon Disciple]]**: stacking natural AC and Strength. **[[Mutation Warrior]]**: bonus feats + a Strength mutagen."
+  - k: Alignment
+    v: "**Lawful Good** (Seelah's fixed alignment) — happens to satisfy [[Monk]] (lawful) and good-aligned [[Witch]] cleanly."
+  - k: Mythic Path
+    v: "Path is flexible — the tank power comes from **mythic abilities** ([[Last Stand]], [[Avoidance]], Archmage Armor), not a specific path. Pick the path you like."
+levels:
+  headers:
+    - Lv
+    - Class This Level
+    - Feat / Bonus Feat
+    - Notable Pick
+  rows:
+    - lv: 1
+      cells:
+        - "[[Paladin]] 1"
+        - "(starts w/ [[Dodge]], [[Shield Focus]])"
+        - Max customization from lvl 1
+    - lv: 2
+      cells:
+        - "[[Witch]] 1 (Stigmatized)"
+        - —
+        - "Lizard familiar (+1 nat AC), **Ice Plant** hex (+2 nat AC), Curse: **Plagued**"
+    - lv: 3
+      cells:
+        - "[[Monk]] 1 (Traditional)"
+        - "[[Armor Focus]] (Heavy) + [[Crane Style]] (monk)"
+        - "3 ranks [[Mobility]]"
+    - lv: 4
+      cells:
+        - "[[Paladin]] 2"
+        - —
+        - Ability ↑ CHA
+    - lv: 5
+      cells:
+        - "[[Paladin]] 3"
+        - "[[Outflank]]"
+        - "Mercy: Fatigued"
+    - lv: 6
+      cells:
+        - "[[Paladin]] 4"
+        - —
+        - —
+    - lv: 7
+      cells:
+        - "[[Paladin]] 5"
+        - "[[Boon Companion]] (via horse trick)"
+        - "Mount: **Horse**"
+    - lv: 8
+      cells:
+        - "[[Paladin]] 6"
+        - —
+        - "Mercy: Diseased · Ability ↑ CHA"
+    - lv: 9
+      cells:
+        - "[[Paladin]] 7"
+        - "[[Improved Critical]] (longsword)"
+        - —
+    - lv: 10
+      cells:
+        - "[[Paladin]] 8"
+        - —
+        - —
+    - lv: 11
+      cells:
+        - "[[Paladin]] 9"
+        - "[[Improved Initiative]]"
+        - "Mercy: Confused / Cursed"
+    - lv: 12
+      cells:
+        - "[[Paladin]] 10"
+        - —
+        - Ability ↑ CHA
+    - lv: 13
+      cells:
+        - "[[Paladin]] 11"
+        - "[[Weapon Focus]] (longsword)"
+        - "**[[Mark of Justice]]** online"
+    - lv: 14
+      cells:
+        - "[[Dragon Disciple]] 1"
+        - —
+        - "**Gold** (metallic / good) bloodline"
+    - lv: 15
+      cells:
+        - "[[Dragon Disciple]] 2"
+        - "[[Dazzling Display]] + [[Power Attack]] (bloodline)"
+        - Gains Dragon bite attack
+    - lv: 16
+      cells:
+        - "[[Dragon Disciple]] 3"
+        - —
+        - "1st-level [[Witch]] spell · Ability ↑"
+    - lv: 17
+      cells:
+        - "[[Dragon Disciple]] 4"
+        - "[[Shatter Defenses]]"
+        - "[[False Life]] (witch spell)"
+    - lv: 18
+      cells:
+        - "[[Fighter]] 1 ([[Mutation Warrior]])"
+        - "[[Combat Reflexes]] (bonus)"
+        - "Strength **mutagen**"
+    - lv: 19
+      cells:
+        - "[[Fighter]] 2"
+        - "[[Toughness]]"
+        - —
+    - lv: 20
+      cells:
+        - "[[Fighter]] 3"
+        - "[[Blind Fight]] (bonus)"
+        - Ability ↑
+  note: |-
+    **Take classes in exactly this order.** Starts with [[Dodge]] & [[Shield Focus]] already. Ability increases (levels 4/8/12/16/20) go into **CHA** (or STR).
+
+    **Alt order:** you get [[Dragon Disciple]] (4) and [[Mutation Warrior]] (3) either way — the video takes [[Dragon Disciple]] first for earlier stat bonuses. If you take [[Fighter]] first instead, you get feats like [[Dazzling Display]] / [[Shatter Defenses]] earlier via fighter bonus slots. Late feats ([[Toughness]], [[Blind Fight]], the mutation-warrior picks) are flexible.
+picks:
+  - heading: Witch Spells & Scrolls
+    items:
+      - name: "[[Mage Armor]] → later Archmage Armor (mythic)"
+        note: "the tanking centerpiece; also buffs unarmored pets/allies. *Cast it out of combat with armor off (arcane spell failure), then re-equip.*"
+      - name: "[[Cure Light Wounds]]"
+        note: on-demand out-of-battle healing to spare potions early.
+      - name: "[[False Life]] (added via [[Dragon Disciple]])"
+        note: temporary HP.
+      - tag: SCROLL
+        name: "[[Frightful Aspect]]"
+        note: "via high [[Use Magic Device]]. A polymorph that procs the Lizard Tail belt + [[Master Shapeshifter]] bonus and adds stacking natural AC. A tank's dream."
+gear:
+  - k: Weapon
+    v: "Thematic: **Radiance**, the unique [[Paladin]] Holy Avenger longsword (decent, not top-tier). Also **Carsomyr**-style Holy Avenger. **Holy Devotee's** longsword (ch.4) smites neutral enemies too (useful for the *Inevitable Excess* DLC). **Scimitar** is best purely mechanically (crit range)."
+    flag: "Video references the 'classic Baldur's Gate Holy Avenger' — likely Carsomyr-flavored. Verify the exact in-game longsword."
+  - k: "Special: Hammer of Masterpiece"
+    v: "From **Seelah's last personal quest**. Not for attacking — cast its buff: **+3 circumstance atk/dmg to an ally for 1 hour** (buff persists without keeping it equipped). Cast on a **pet** and it grants **+2 attacks/round** — unique in the game."
+    flag: "Verify exact item name 'Hammer of Masterpiece' and quest source."
+  - k: Armor
+    v: "**Living Fortress** (best heavy armor — % damage reduction + innate heavy fortification) or **Flowing Half-Plate** (ch.4 market; +5 reflex saves + **Evasion** — huge with your high saves). Ch.1–3: any **full plate** (avoid mithral — counts as medium)."
+  - k: Shield
+    v: "**Assertion of Dominance** — zero damage from slashing/piercing while at full HP (easy for this tank). **Avoid Tower Shields**: they cap max DEX-to-AC, and Mythic Avoidance counts as DEX, so a tower shield *tanks* your AC. Early: **Guardian's Shield** (ch.3, knockdown immunity + extra AoO); **Undying Love of the Hopebringer** (ch.4)."
+  - k: Amulet
+    v: "**Heartstone of the Night Hag Queen** (+7 natural AC; ch.5) or **Voracious Spirit** (Camellia's last quest; stacking AC on kills). Earlier: initiative amulets (smite ASAP)."
+    flag: "Verify 'Heartstone of the Night Hag Queen' and 'Voracious Spirit' amulet names/sources."
+  - k: Belt
+    v: "**Lizard Tail Belt** (ch.4+) — the best tank belt: +3 morale AC and +8 circumstance AC on the first combat round (enough, since fights end in 1–2 rounds). Being polymorphed is fine. Earlier: STR belts."
+  - k: Head
+    v: "Helmet: **Shynryu** (profane AC + STR → more AC via Avoidance). Ch.3 until then: **Helmet of Comraderie** (morale AC). Glasses/Mask: **Broken Trickster Glasses** (ch.3+; big CHA + tank property; frees the helmet slot)."
+    flag: "Helmet name transcribed as 'Shyy' — verify exact name; profane bonus to AC and STR."
+  - k: Cloak
+    v: "Early: **Cloak of Resistance** (highest modifier). Ultimately **Grand Festival Cloak** (+CHA circumstance for bigger smites)."
+    flag: "Verify 'Grand Festival Cloak' name/source."
+  - k: Rings
+    v: "**Icy Protector** — must-have, **ch.1 in the tavern**; it's what makes the witch dip's AC so strong. **Righteous Crusader** (more smite uses). **Ring of Triumphant Advance** & **Seven Virtues of a True Ruler** are great but usually go on the main character."
+  - k: Boots
+    v: "**Ranph's Sacrifice** — doubles the haste AC bonus; best boots for a tank."
+    flag: "Boots name transcribed as 'ronx sacrifice' — verify. Doubles the haste bonus to AC; higher DEX also helps initiative."
+  - k: Gloves
+    v: "**Embroidered Gloves** (ch.5; luck bonus to AC + all saves). Anything before that."
+  - k: Bracers
+    v: "**Bracers of Rough Landing** — competence AC vs flying enemies (many demons have wings)."
+  - k: Quick Slots
+    v: "**Aroden's** item (Smite AC → Sacred + 1d4 divine on first hit). [[Paladin]] spell-slot item for [[Divine Favor]] / [[Bestow Grace]]. **Covenant of the Inheritor** (party-wide: bypass demon physical DR). **Duality of Conjuration & Summoning** (+1 permanent smite scroll). Extend rods. Scrolls of **[[Frightful Aspect]]**."
+    flag: "Quick-slot item transcribed as 'aroden' — verify. Changes Smite's AC bonus from deflection to Sacred (unique source) and adds 1d4 divine to your first attack each round. Paladin spell-slot item name transcribed as 'Old Gmar' in audio — verify the item that grants paladin spell slots."
+mythic:
+  table:
+    headers:
+      - Rank
+      - Pick
+      - Why
+    rows:
+      - lv: 1
+        cells:
+          - "[[Last Stand]]"
+          - With this + high AC, Seelah essentially never dies.
+      - lv: 2
+        cells:
+          - "Mythic Heavy [[Armor Focus]] → [[Avoidance]]"
+          - "Adds **½ your STR bonus to AC** (instead of DEX), uncapped. With [[Dragon Disciple]] + buffs STR can hit +20 → **+10 AC**."
+      - lv: 3
+        cells:
+          - "[[Ever Ready]]"
+          - So Seelah also attacks well (attacks of opportunity), not just tanks.
+      - lv: 4
+        cells:
+          - "Mythic [[Dodge]] (or Mythic Critical)"
+          - "[[Dodge]] = more tanking (preferred). Mythic Critical if you want more damage. Skip other [[Armor Focus]] lines — AC > DR on Unfair."
+      - lv: 5
+        cells:
+          - "[[Abundant Smite]] (or [[Master Shapeshifter]])"
+          - "[[Abundant Smite]] = full-power smites (you have [[Mark of Justice]]). [[Master Shapeshifter]] enables *[[Frightful Aspect]]* from scrolls."
+      - lv: 6
+        cells:
+          - Mythic Critical (weapon)
+          - On your chosen weapon.
+      - lv: 7
+        cells:
+          - Archmage Armor
+          - "**[[Mage Armor]]** now gives ~+11 AC (scales with mythic rank) and **stacks with full plate** — best-of-both-worlds normal AC."
+      - lv: 8
+        cells:
+          - Mythic Initiative
+          - Smite the Demon Lords the instant combat starts.
+      - lv: 9
+        cells:
+          - "[[Abundant Smite]] / [[Master Shapeshifter]] / Mythic Beast"
+          - Whichever of the level-5 pair you skipped (or Mythic Beast).
+combat:
+  bullets:
+    - "**Pre-buff.** [[Barkskin]], [[Shield of Faith]], and your usual defensive stack."
+    - "**Formation.** Put Seelah **ahead** of the party so enemies target her first; keep casters at the back (Seelah reaches enemies first)."
+    - "**Fight Defensively** — always on for the AC bonus (plus [[Crane Style]] if you took [[Monk]])."
+    - "**On Unfair: pre-cast [[Protective Luck]]** on Seelah before battle (from Camellia or Ember — infinite uses). Enemies roll twice and take the worse, so no auto-hit nat-20s in that critical first round. Keep re-casting during the fight; duration grows with Shaman/[[Witch]] levels."
+    - "**Reach backup.** A party member with a reach two-hander can attack enemies stuck behind your wall."
+    - "**Armor-off trick.** Before battle, remove armor + shield to cast [[Witch]] **[[Mage Armor]]** on pets/allies/herself (arcane spell failure otherwise), then re-equip. After Archmage Armor you can also heal allies this way — *out of combat only*."
+footnotes:
+  - "Item and hex/curse names throughout are transcribed from the video's audio — several proper nouns are approximate; verify exact names/locations in-game."
+  - "Mythic **path** is your choice; only the abilities matter."
+  - "No fixed **point-buy** given (Seelah is a respec companion); priorities only."
+  - "**\"Ice Plant\" hex** exact name (+2 stacking natural AC)."
+  - "Stigmatized [[Witch]] **curse** \"Plagued\"."
+  - "**[[Boon Companion]] \"horse trick\"** feat-swap steps."
+  - "**Weapon choice**: scimitar (mechanical) vs longsword (thematic)."
+  - "**Gear names**: Holy Avenger, Hammer of Masterpiece, Heartstone/Voracious Spirit amulets, Shynryu helmet, Grand Festival Cloak, Ranph's Sacrifice boots, Aroden's & paladin spell-slot quick-slot items."

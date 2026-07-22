@@ -1,0 +1,26 @@
+---
+// Mirrors the prototype's `.footnotes` block (index.html, "Verify In-Game"
+// section). The ported CSS scopes `.footnotes .credit .maker`, so the maker
+// credit line lives here too (not just in the hero's `.vidcredit`) — pass
+// the build's `video` prop through to render it.
+import Prose from './Prose.astro';
+const { footnotes, video } = Astro.props; // build.data.footnotes, build.data.video
+const watchUrl = video ? `https://www.youtube.com/watch?v=${video.youtubeId}` : null;
+const creditUrl = video ? (video.creatorUrl || watchUrl) : null;
+---
+{footnotes && footnotes.length > 0 && (
+  <div class="footnotes">
+    <p class="eyebrow">Verify In-Game</p>
+    <p class="dim" style="font-size:13px">Items normalized from the video's audio or not fully confirmed &mdash; worth a quick check while playing. (Also hover any <span class="flag" title="like this">&#9432;</span> marker above.)</p>
+    <ol>
+      {footnotes.map((fn, i) => (
+        <li><span class="marker">{i + 1}</span> &mdash; <Prose as="span" text={fn} /></li>
+      ))}
+    </ol>
+    {video && (
+      <p class="credit">
+        <span class="maker"><b>Build by <a href={creditUrl} target="_blank" rel="noopener">{video.creator}</a></b> &middot; <a href={watchUrl} target="_blank" rel="noopener">full video &#8599;</a></span>
+      </p>
+    )}
+  </div>
+)}

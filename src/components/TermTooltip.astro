@@ -1,0 +1,59 @@
+<script>
+  // Floating hover tooltip for glossary terms rendered by `renderInline`
+  // (see src/lib/inline.ts). Each `.wl` element (an `<a>` or `<span>`)
+  // already carries `data-cat` and `data-desc`, and already contains its
+  // own inline `<img class="ic-in">` icon — this script does not look up
+  // any icon/term maps of its own, it only reads those two attributes.
+  const CAT_MARK: Record<string, [string, string]> = {
+    feat: ['⚔', 'm-feat'],
+    spell: ['✦', 'm-spell'],
+    hex: ['☠', 'm-hex'],
+    mythic: ['★', 'm-myth'],
+    class: ['◘', 'm-cls'],
+    skill: ['●', 'm-skill'],
+    ability: ['❖', 'm-abil'],
+  };
+
+  const tip = document.createElement('div');
+  tip.className = 'tip';
+  tip.style.display = 'none';
+  document.body.appendChild(tip);
+
+  function show(el: HTMLElement) {
+    const name = (el.textContent || '').trim();
+    const desc = el.dataset.desc || '';
+    const cat = el.dataset.cat || '';
+    // Prefer the term's real icon (the inline `<img class="ic-in">` already
+    // inside the `.wl` element); fall back to the category glyph when a term
+    // has no icon.
+    const iconEl = el.querySelector('img.ic-in') as HTMLImageElement | null;
+    const iconSrc = iconEl ? iconEl.getAttribute('src') : null;
+    const mark = CAT_MARK[cat];
+    const badgeHtml = iconSrc
+      ? `<img class="ic" src="${iconSrc}" alt="">`
+      : mark
+      ? `<span class="tmk ${mark[1]}">${mark[0]}</span>`
+      : '';
+    tip.innerHTML = badgeHtml + '<b>' + name + '</b><span class="tdesc">' + desc + '</span>';
+    tip.style.display = 'block';
+
+    const r = el.getBoundingClientRect();
+    let top = r.top - tip.offsetHeight - 9;
+    if (top < 8) top = r.bottom + 9;
+    const left = Math.min(Math.max(8, r.left), window.innerWidth - tip.offsetWidth - 8);
+    tip.style.top = top + 'px';
+    tip.style.left = left + 'px';
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    const target = e.target as HTMLElement;
+    const el = target.closest ? (target.closest('.wl') as HTMLElement | null) : null;
+    if (el) show(el);
+  });
+  document.addEventListener('mouseout', (e) => {
+    const target = e.target as HTMLElement;
+    const el = target.closest ? target.closest('.wl') : null;
+    if (el) tip.style.display = 'none';
+  });
+  window.addEventListener('scroll', () => { tip.style.display = 'none'; }, true);
+</script>

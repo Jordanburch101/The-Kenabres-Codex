@@ -1,0 +1,9 @@
+---
+import { renderInline } from '../lib/inline';
+import { loadGlossaryIndex } from '../lib/loadGlossary';
+const { text, as = 'p', class: cls = '' } = Astro.props;
+const idx = await loadGlossaryIndex();
+const html = renderInline(text, idx);       // throws on unknown term → build fails
+const Tag = as;
+---
+<Tag class={cls} set:html={html} />

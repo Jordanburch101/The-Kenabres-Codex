@@ -1,0 +1,266 @@
+slug: demonslayer
+name: The Demon Slayer
+tagline: Ranger — Demon Slayer archetype
+kind: mc
+role: Ranged DPS
+class: Ranger
+archetype: Demon Slayer
+race: Tiefling
+alignment: Chaotic Good
+mythicPath: Azata
+difficultyToPlay: Low
+difficultyTarget: Core
+tags:
+  - archery
+  - favored-enemy
+  - demon-bane
+  - animal-companion
+  - ranged-dps
+video:
+  youtubeId: "Hz-hJtGajcQ"
+  creator: Mortismal Gaming
+badges:
+  - label: Ranged DPS
+    style: gold
+  - label: Slays Demons
+    style: crim
+  - label: Tiefling
+    style: plain
+  - label: Azata
+    style: plain
+  - label: "Target: Core"
+    style: plain
+  - label: "Difficulty to play: Low"
+    style: plain
+summary: Trades the ranger's chosen favored enemy for a permanent bonus against **all three demon subtypes** — a monstrous advantage in a campaign where most of what you fight is demons. Stack the demon bonuses, add an animal companion (and **[[Aivu]]**), and become a point-and-click bow that deletes the Abyss. Very simple to pilot, strong from early game on.
+abilityScores:
+  str:
+    value: "—"
+    tag: "base*"
+    emphasis: dump
+  dex:
+    value: "20"
+    tag: max it
+    emphasis: hi
+  con:
+    value: "12"
+    tag: or Str
+    emphasis: hi
+  int:
+    value: "—"
+    tag: don't drop
+  wis:
+    value: "18"
+    emphasis: hi
+  cha:
+    value: DUMP
+    emphasis: dump
+  note: |-
+    Push **DEX to 20** (your attack + damage stat with a bow) and **WIS to 18**. Fully **dump Charisma**. Don't drop Intelligence below its starting value or you'll lose skill points. Put the remaining points into **CON 12** — or into **STR 12** instead, since composite bows add your STR modifier to damage (see Gear).
+
+    Level-up increases: pour into **DEX** (or **STR** if you commit to composite-bow damage). *STR left at base unless you go the composite-bow damage route.*
+skills:
+  main: "Your biggest bonuses land in **[[Stealth]]**, **[[Perception]]**, and **Lore (Nature)**."
+  note: "**Swap:** if you don't actually use [[Stealth]], don't waste the point — put it into **Lore (World)** (more useful, slightly more role-play flavor) or **Lore (Arcana)** instead."
+identity:
+  - k: Class
+    v: "[[Ranger]] — **[[Demon Slayer]]** archetype. Loses the free favored-enemy choice; instead treats Demons of Slaughter, Magic & Strength as favored enemies, plus **Fiendish Quarry** alongside regular Quarry."
+  - k: Race
+    v: "**Tiefling** — *Faultspawn* or *Asura-spawn* heritage: +2 DEX, +2 WIS, −2 INT (unused), +2 saves vs enchantment, and a [[Hideous Laughter]] cast. **Human** is the strong all-rounder alt (bonus feat + free ability bump)."
+  - k: Background
+    v: "**Hunter** — grants short/long bow proficiency, which converts into a straight enhancement bonus for this ranged build."
+  - k: Alignment
+    v: "**Chaotic Good** (or at least Chaotic) — required to play smoothly into the [[Azata]] mythic path."
+  - k: Mythic Path
+    v: "**[[Azata]]** — grants **[[Aivu]]** (effectively a second companion) and leans into the demon-slaying fantasy. See the Mythic section."
+levels:
+  headers:
+    - Lv
+    - Feat
+    - Combat Style (Archery)
+    - Terrain · Companion · Quarry
+    - Key Spell (when available)
+  rows:
+    - lv: 1
+      cells:
+        - "[[Point Blank Shot]]"
+        - —
+        - —
+        - —
+    - lv: 2
+      cells:
+        - —
+        - "[[Precise Shot]]"
+        - —
+        - —
+    - lv: 3
+      cells:
+        - "[[Blind Fight]]"
+        - —
+        - "**Terrain:** Urban"
+        - —
+    - lv: 4
+      cells:
+        - —
+        - —
+        - "Animal Companion: **Smilodon**"
+        - "[[Hurricane Bow]] *(1st)*"
+    - lv: 5
+      cells:
+        - "[[Boon Companion]]"
+        - —
+        - —
+        - —
+    - lv: 6
+      cells:
+        - —
+        - "[[Point-Blank Master]]"
+        - —
+        - —
+    - lv: 7
+      cells:
+        - "[[Clustered Shots]]"
+        - —
+        - —
+        - "[[Sense Vitals]] *(2nd)*"
+    - lv: 8
+      cells:
+        - —
+        - —
+        - "**Terrain:** your choice"
+        - —
+    - lv: 9
+      cells:
+        - "[[Rapid Shot]]"
+        - —
+        - —
+        - —
+    - lv: 10
+      cells:
+        - —
+        - "[[Manyshot]]"
+        - —
+        - "[[Instant Enemy]] *(3rd)*"
+    - lv: 11
+      cells:
+        - "[[Hammer the Gap]]"
+        - —
+        - "**Quarry** + Fiendish Quarry"
+        - —
+    - lv: 12
+      cells:
+        - —
+        - —
+        - —
+        - —
+    - lv: 13
+      cells:
+        - "[[Improved Precise Shot]]"
+        - —
+        - "**Terrain:** Abyss"
+        - "[[Animal Growth]] / [[Aspect of the Wolf]] *(4th)*"
+    - lv: 14
+      cells:
+        - —
+        - "[[Improved Critical]]"
+        - —
+        - —
+    - lv: 15
+      cells:
+        - "[[Critical Focus]]"
+        - —
+        - —
+        - —
+    - lv: 16
+      cells:
+        - —
+        - —
+        - —
+        - —
+    - lv: 17
+      cells:
+        - "[[Blinding Critical]]"
+        - —
+        - —
+        - —
+    - lv: 18
+      cells:
+        - —
+        - "[[Toughness]]"
+        - —
+        - —
+    - lv: 19
+      cells:
+        - "[[Snapshot]]"
+        - —
+        - "**Improved Quarry** + Imp. Fiendish Quarry"
+        - —
+    - lv: 20
+      cells:
+        - —
+        - —
+        - Master Hunter
+        - —
+  note: |-
+    Regular feats land on odd levels; Combat-Style (Archery) bonus feats on 2 / 6 / 10 / 14 / 18. Take the ranger to level 20 — the final demon-slaying bonus lands at 20.
+
+    Levels 15 & 19 ([[Critical Focus]], [[Snapshot]]) and the level-18 style feat are flexible — swap freely without hurting the build. **[[Rapid Shot]]** pairs with its mythic version to erase the −2 attack penalty (see Mythic).
+picks:
+  - heading: Divine Spell Picks
+    intro: Rangers cast a small list, up to 4th level, caster level capping at 17. Grab these as each spell tier opens (levels 4 / 7 / 10 / 13).
+    items:
+      - tag: 1ST
+        name: "[[Hurricane Bow]]"
+        note: "turns your longbow's 1d8 into 2d6; a flat pre-combat damage buff that scales with all your extra hits."
+      - tag: 2ND
+        name: "[[Sense Vitals]]"
+        note: "adds sneak-attack dice that grow as you level. *(Alt: [[Barkskin]].)*"
+      - tag: 3RD
+        name: "[[Instant Enemy]]"
+        note: "swift action to tag any target as your favored enemy. Lets you apply your huge demon bonuses to non-demons."
+      - tag: 4TH
+        name: "[[Animal Growth]] (big companion buff) or [[Aspect of the Wolf]]"
+        note: "+4 enhancement STR/DEX — *won't stack with enhancement bonuses from gear like belts, so prefer [[Animal Growth]] if it conflicts*. Alt: [[Freedom of Movement]]."
+gear:
+  - k: Weapon
+    v: "**Composite bows** — most bows in the game carry the composite tag, adding your STR modifier to damage. Take the best you find."
+  - k: Big Game Hunter Gloves
+    v: "**Act 2 — Lost Chapel**, from optional boss **Mogla**. Your Quarry target also takes −2 AC and becomes *sickened*. Note: no payoff until you get Quarry at level 11 (~mid Act 3)."
+    flag: "Verify exact item name and location in-game. Video (audio) said 'big game gloves' from a boss named Mogla at the Lost Chapel in Act 2."
+  - k: Chain Shirt
+    v: "**Act 1 — Tower of Estrod.** ~6 base AC + up to a 6 DEX AC bonus, letting a ranger use full DEX with real armor early."
+    flag: "Audio rendered the name as 'Lady Kalandra's chain shirt' — verify the exact item name in-game."
+  - k: Wicked Longbow
+    v: "**Act 1 — Market Square**, found inside one of the houses."
+    flag: "Verify exact bow name and house location in Market Square."
+mythic:
+  intro: "Recommended path — grants **[[Aivu]]** (effectively a second companion; her caster level is 20 post-patch 1.2, down from 30, but still very strong) and fits the demon-slayer identity. Best played **Chaotic Good**."
+  table:
+    headers:
+      - ""
+      - ""
+    rows:
+      - lv: Mythic Abilities
+        cells:
+          - "**[[Cleaving Shot]]** (first pick — crits / kills deal weapon damage to everything in 10 ft). Then pick among **Distracting Shot**, **Exposed Vulnerability**, **The Bigger They Are**, and **Mythic Beast** (buffs your companions)."
+      - lv: Mythic Feats
+        cells:
+          - "Take the mythic version of feats you already have — above all **Mythic [[Rapid Shot]]**, which removes the −2 penalty and makes [[Rapid Shot]] essentially a free extra attack."
+      - lv: Superpowers (pick 4)
+        cells:
+          - "**Life-Bonding Friendship** (share teamwork feats with the whole party; brief death-prevention — don't rely on that part) and **[[Supersonic Speed]]** (permanent in-combat Haste; 20% miss chance vs melee/ranged attacks on you, 10% vs targeted spells, area damage halved — but the miss chance does *not* stack with concealment like Blur)."
+  note: "**Any path works** with this build — [[Azata]] is simply the strongest fit. Just match your alignment to the path you choose."
+combat:
+  bullets:
+    - "**Pre-buff.** Keep **[[Hurricane Bow]]** and **[[Sense Vitals]]** active, plus any [[Azata]] songs/buffs."
+    - "**Apply Quarry** (from level 11) — especially on bosses; the auto-confirmed crit and +2 to hit are big."
+    - "**Target demons.** In mixed fights, always shoot the demons first — that's where your bonuses live. Once you have **[[Instant Enemy]]** you can extend the bonus to anything."
+    - "**Then point and click.** By level 9–10 you're hitting demons for ~100–150 per regular hit (more on crits), before [[Aivu]] and your animal companion add their own turns."
+  closer: "The upshot: high damage, easy to pilot, strong early *and* late — a specialist that shines because the whole campaign is demons."
+footnotes:
+  - "Tiefling **Faultspawn / Asura-spawn** exact heritage bonuses."
+  - "**Level-up ability increases** going into DEX (or STR) is a recommendation; not stated explicitly in the video."
+  - "**Big Game Hunter Gloves** exact name / location (Act 2, Lost Chapel, boss Mogla)."
+  - "**Chain shirt** exact name at Tower of Estrod (audio: \"Lady Kalandra's\")."
+  - "**Wicked Longbow** exact name and Market Square house."
+  - "[[Azata]] superpower confirmed as **[[Supersonic Speed]]** (video said \"super sonic speed\"). Verified."

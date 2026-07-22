@@ -1,0 +1,275 @@
+slug: camellia
+name: Camellia — The Poisoner
+tagline: Shaman · Loremaster · Titan Fighter
+kind: companion
+role: Crowd Control
+class: Shaman
+tags:
+  - crowd-control
+  - poison
+  - stinking-cloud
+  - hexes
+  - dual-wield
+  - rapier
+  - trap-lock-expert
+  - multiclass
+  - unfair-ready
+video:
+  youtubeId: "hws7s7c4alY"
+  creator: cRPG Bro
+badges:
+  - label: Crowd Control
+    style: crim
+  - label: Poison / Stinking Cloud
+    style: gold
+  - label: Rapier Dual-Wield
+    style: plain
+  - label: "Trap & Lock Expert"
+    style: plain
+  - label: Unfair-Ready
+    style: plain
+summary: "One spell renders a whole pack useless: **[[Stinking Cloud]]** nauseates enemies into helplessness while Camellia strolls in for the kill with her rapiers — and thanks to the **[[Corruptor]]** mythic ability, her poison ignores immunities, so it lands on *everything*, demons and Demon Lords included. On top of that she's a [[Shaman]] (party buffs + debuff hexes) and your best trap/lock specialist. Late game she dual-wields high-crit rapiers for real melee damage too."
+abilityScores:
+  wis:
+    value: MAX
+    tag: "spell DC & slots"
+    emphasis: hi
+  dex:
+    value: secondary
+    tag: "attack & AC (finesse)"
+  note: "**Story companion** — respec and prioritize. **Wisdom** drives her poison/conjuration spell DC and spell slots for buffing, healing, and debuffing. **Dexterity** is her attack stat ([[Weapon Finesse]] rapiers) and AC — kept high from the start, topped off at level 20. She'll have slightly lower AC/attack than a pure-DEX melee build, but it doesn't matter — poisoned enemies can't fight back when she moves in."
+skills:
+  main: "**[[Trickery]]** — her specialty (plus a noble-background bonus). She's your best pick for chests and traps. **[[Mobility]]** (or **[[Stealth]]** / **[[Perception]]**) — depends on what the rest of the party already covers. She has the Dexterity for any of them."
+  note: "**Knowledge (Arcana or World)** — one rank of **[[Skill Focus]]** here later, purely to qualify for **[[Loremaster]]**."
+identity:
+  - k: Concept
+    v: "Camellia joins at level 1 (near-full customization) already carrying **[[Skill Focus]]** ([[Trickery]]) and **[[Weapon Finesse]]**. Built as a caster first — safer than tanking with her, which would delay the spell/hex progression that makes her shine."
+  - k: Classes
+    v: "**[[Shaman]] 16** (Nature spirit — hexes, buffs, and a pet) · **[[Loremaster]] 3** (spellcasting + broken secrets) · **[[Titan Fighter]] 1** (dual-wield + a bonus feat)."
+  - k: Win condition
+    v: "**[[Stinking Cloud]]** + the **[[Corruptor]]** mythic ability. [[Stinking Cloud]] is a poison, so normally demons are immune — Corruptor removes that, making it a universal AoE lockdown (and it won't touch your own poison-immune party)."
+  - k: Why Loremaster
+    v: "By level 17 she already has every [[Shaman]] buff/hex she wants, so [[Loremaster]] just continues spellcasting and hands over powerful secrets (see the level table)."
+  - k: Why Titan Fighter
+    v: "A one-level dip that lets her **dual-wield staves** (stacking spell-DC for [[Stinking Cloud]], BG3-style) plus a bonus feat. Alt: **[[Alchemist]] / [[Vivisectionist]]** (sneak attack + a Dexterity mutagen) if you prefer more melee flavor."
+levels:
+  headers:
+    - Lv
+    - Class This Level
+    - Feat
+    - Hex · Key Spells
+  rows:
+    - lv: 1
+      cells:
+        - "[[Shaman]]"
+        - "starts w/ [[Skill Focus]] ([[Trickery]]), [[Weapon Finesse]]"
+        - "Hex: **[[Protective Luck]]** (Unfair) / **[[Evil Eye]]**"
+    - lv: 2
+      cells:
+        - "[[Shaman]]"
+        - —
+        - —
+    - lv: 3
+      cells:
+        - "[[Shaman]]"
+        - "[[Spell Focus]] (Conjuration)"
+        - "[[Winter's Grasp]] available"
+    - lv: 4
+      cells:
+        - "[[Shaman]]"
+        - —
+        - "Hex: the other of [[Protective Luck]] / [[Evil Eye]] · Ability ↑ WIS"
+    - lv: 5
+      cells:
+        - "[[Shaman]]"
+        - "[[Greater Spell Focus]] (Conjuration)"
+        - "[[Stinking Cloud]] (bypasses SR) · Spirit adds Keen to rapiers"
+    - lv: 6
+      cells:
+        - "[[Shaman]]"
+        - —
+        - —
+    - lv: 7
+      cells:
+        - "[[Shaman]]"
+        - "[[Heighten Spell]] *(metamagic)*"
+        - "4th-level spells → heighten [[Stinking Cloud]]"
+    - lv: 8
+      cells:
+        - "[[Shaman]]"
+        - —
+        - "Hex: **[[Fortune]]** · Ability ↑ WIS"
+    - lv: 9
+      cells:
+        - "[[Shaman]]"
+        - "[[Persistent Spell]] *(metamagic)*"
+        - "5th-level → Persistent [[Stinking Cloud]] (enemy saves twice)"
+    - lv: 10
+      cells:
+        - "[[Shaman]]"
+        - —
+        - "Hex: Battle Master (free [[Combat Reflexes]] + [[Weapon Specialization]]: Rapier)"
+    - lv: 11
+      cells:
+        - "[[Shaman]]"
+        - "[[Outflank]] *(or [[Improved Initiative]] + Ambushing Spell)*"
+        - —
+    - lv: 12
+      cells:
+        - "[[Shaman]]"
+        - —
+        - "Hex: [[Cackle]] (extend [[Fortune]] / [[Protective Luck]]) · Ability ↑ WIS"
+    - lv: 13
+      cells:
+        - "[[Shaman]]"
+        - "[[Improved Critical]] (Rapier)"
+        - —
+    - lv: 14
+      cells:
+        - "[[Shaman]]"
+        - —
+        - —
+    - lv: 15
+      cells:
+        - "[[Shaman]]"
+        - "[[Skill Focus]] (Knowledge) *— [[Loremaster]] prereq*"
+        - —
+    - lv: 16
+      cells:
+        - "[[Shaman]]"
+        - —
+        - "Last hex: Ice Plant / Hampering (filler) · free [[Greater Weapon Focus]] (Rapier) · Ability ↑ WIS"
+    - lv: 17
+      cells:
+        - "[[Loremaster]] 1"
+        - "[[Boon Companion]]"
+        - "Secret: Rogue Combat Trick → extra [[Improved Critical]] (trickster feat)"
+    - lv: 18
+      cells:
+        - "[[Loremaster]] 2"
+        - —
+        - —
+    - lv: 19
+      cells:
+        - "[[Loremaster]] 3"
+        - "[[Two-Weapon Fighting]]"
+        - "Secret: [[Improved Two-Weapon Fighting]] (or another Rogue talent)"
+    - lv: 20
+      cells:
+        - "[[Fighter]] 1 *([[Titan Fighter]])*"
+        - "[[Greater Two-Weapon Fighting]] *(bonus)*"
+        - "Ability ↑ DEX (even it out)"
+  note: |-
+    **Custom from level 1** — she starts with **[[Skill Focus]]** ([[Trickery]]) and **[[Weapon Finesse]]**. Ability increases go into **WIS** (DEX at 20). Spellcasting feats come *before* melee feats — her [[Stinking Cloud]] is that good boosted. Her Spirit grants rapiers the Keen property at level 5, so delaying [[Improved Critical]] to level 13 costs nothing (Keen and Improved Critical don't stack).
+
+    If you don't care about her melee/dual-wield side, swap the late melee feats for **[[Improved Initiative]]** and more spellcasting. Dual-wield can start as early as ~17 if you delay metamagic, but her poison doesn't need it early.
+mythic:
+  table:
+    headers:
+      - Rank
+      - Pick
+      - Why
+    rows:
+      - lv: 1
+        cells:
+          - "[[Corruptor]]"
+          - "Your poisons/diseases **ignore immunities** — [[Stinking Cloud]] now hits every enemy in the game (demons, even Demon Lords) and still spares your own immune party. The whole build."
+      - lv: 2
+        cells:
+          - "[[Abundant Casting]] *(via Extra Mythic Ability)*"
+          - "More slots for a cheap low-level spell + her [[Shaman]] buffs."
+      - lv: 3
+        cells:
+          - "[[Improved Abundant Casting]]"
+          - "Even more slots (heighten any 3rd+ slot into another [[Stinking Cloud]])."
+      - lv: 4
+        cells:
+          - "Mythic [[Spell Focus]] (Conjuration)"
+          - "Conjuration has little DC gear, so every point matters. (Delay Mythic Critical.)"
+      - lv: 5
+        cells:
+          - "Second Spirit: Nature"
+          - "A full-scaling pet (Dog — the \"good boy\" — or Wolf) far earlier than the level-16 default. Alt: [[Master Shapeshifter]] / [[Greater Abundant Casting]]."
+      - lv: 6
+        cells:
+          - "[[Mythic Critical]] (Rapier)"
+          - "Now that her melee feats are online."
+      - lv: 7
+        cells:
+          - "[[Greater Abundant Casting]]"
+          - "Up to 9th-level spells by now."
+      - lv: 8
+        cells:
+          - "[[Mythic Two-Weapon Fighting]]"
+          - "Higher attack rolls dual-wielding (or Mythic [[Weapon Specialization]] / Favored Metamagic: Persistent for +1 [[Stinking Cloud]] DC)."
+      - lv: 9
+        cells:
+          - "[[Last Stand]]"
+          - "Survivability, especially for the *Inevitable Excess* DLC. Alt: [[Master Shapeshifter]] / Mythic Beast."
+      - lv: 10
+        cells:
+          - "Free choice"
+          - "Mythic TWF / Weapon Spec / Persistent — or Mythic [[Improved Initiative]] if you took the normal one."
+picks:
+  - heading: "Hexes & Spells"
+    items:
+      - name: "Hexes (infinite)"
+        note: "**[[Protective Luck]]** (enemies roll twice, take worse — on your tank; she can't self-cast it), **[[Evil Eye]]** (−4 to enemy saves/AC; *stacks with Ember's [[Evil Eye]] for −8* since it's a different class), **[[Fortune]]** (once/rest, save for a boss), **[[Cackle]]** (extend [[Fortune]]/[[Protective Luck]]), Battle Master (free melee feats)."
+      - tag: CONTROL
+        name: "[[Stinking Cloud]] ★"
+        note: "Conjuration → bypasses spell resistance; poison → [[Corruptor]] makes it ignore immunities. Early: [[Winter's Grasp]] (has friendly fire, but works)."
+      - tag: META
+        name: "[[Heighten Spell]] · [[Persistent Spell]]"
+        note: "[[Heighten Spell]] re-slots [[Stinking Cloud]] higher for more casts + DC; [[Persistent Spell]] makes the enemy save twice."
+      - tag: SUPPORT
+        name: "A full [[Shaman]] buff/heal book"
+        note: "And crucially **[[Delay Poison]]** (Communal) cast on the whole party (e.g. by a cleric like Sosiel) so your own [[Stinking Cloud]] never nauseates your team — or Camellia herself."
+gear:
+  - k: Amulet
+    v: "Camellia's unique amulet for most of the game; later her 2nd amulet (last personal quest — stacking AC, temp HP, saves) or the **Heartstone of the Night Hag Queen** (best spell-DC amulet — preferred for the control focus)."
+  - k: Armor
+    v: "She casts in light/medium armor fine. Chain shirt → mithral chain shirt; ultimately a **Haramaki** once your DEX is high enough to beat the armor's DEX cap."
+  - k: Robe
+    v: "Anything early → **Robe of the Seven Sins** (highest spell DC)."
+  - k: Belt
+    v: "**Belt of Dexterity** early → **Belt of Physical Perfection** (all physical stats)."
+  - k: Gloves
+    v: "Minor; **Fencer's Gift** late for the dual-wield bonus."
+    flag: "Verify 'Fencer's Gift' gloves name; dual-wield bonus, relevant only once she dual-wields late."
+  - k: Boots
+    v: "**Spirit Trackers** (ch.4) — the only unique [[Shaman]] gear; extra spirit-weapon uses."
+    flag: "Verify 'Spirit Trackers' boots (ch.4) — the only unique Shaman gear; extra spirit-weapon uses."
+  - k: Head
+    v: "**Headband of Wisdom** (spell DC) → a Mental Perfection headband like **Darkness Caress** (all mental stats)."
+  - k: Glasses
+    v: "**Rasmir's Mask** (cast first spell as a free action — great for dropping the cloud, or twice if they save; +8 mental stats; a chapter earlier than Darkness Caress) or **Feral Goggles** ([[Perception]] + [[Trickery]])."
+    flag: "Transcribed 'Ral goggles' — verify exact name; big Perception + Trickery, ch.4."
+  - k: Cloak
+    v: "**Cloak of Resistance** (highest modifier)."
+  - k: Rings
+    v: "**Colman's Ring** ([[Trickery]]) early; later **Ring of Evasion** and the **Bane of Spirit** Crusade Relic (converts her extra elemental damage to irresistible Force type — bypasses most DR)."
+    flag: "Verify 'Colman's Ring' name — boosts Trickery, early. 'Bane of Spirit' relic ring converts extra elemental damage to irresistible Force type, bypassing most late-game DR — verify exact name."
+  - k: "Weapon: Staves"
+    v: "For casting: **Quarterstaff of the War Mage** (ch.3; +DC to [[Stinking Cloud]]). With the [[Titan Fighter]] dip, dual-wield it with the new **Sage staff** for +1 DC (better on INT casters, so marginal for her)."
+    flag: "Transcribed 'sin mes / Sage staff' — verify; +1 spell DC, better on INT casters. Only a small gain for WIS-based Camellia."
+  - k: "Weapon: Rapiers"
+    v: "Best main hand: **Translucent Needle of Astonishment**. Off-hand: **Interceptor Rapier**. Early: the Holy Rapier from the Drezen merchant."
+    flag: "Translucent Needle of Astonishment: from Camellia's last personal quest (if you kill a certain NPC) — evil-outsider bane, staggers/paralyzes on the first strike each round even on a save; verify exact name. Interceptor Rapier: bonus to attack-of-opportunity rolls/damage and an extra attack on a killing blow; verify name."
+  - k: "Shield (on an ally)"
+    v: "**Undying Love of the Hopebringer** heavy shield — its Dark Aura raises the DC of all poison spells (including [[Stinking Cloud]]). It's an aura, so any nearby melee ally can carry it."
+  - k: Quick Slots
+    v: "**Quicken** & **Extend** metamagic rods (even Lesser Quicken helps — [[Stinking Cloud]] is only 3rd level). The **Imp Pad** (profane [[Trickery]]). If you skip Second Spirit, the **Triceratops Statue** gives a free (non-scaling) pet a chapter earlier."
+    flag: "Transcribed 'Imp pad' — verify; profane bonus to Trickery."
+combat:
+  bullets:
+    - "**Immunize your party first.** Cast **[[Delay Poison]]** (Communal) on everyone (from a cleric like Sosiel) — otherwise your own [[Stinking Cloud]] nauseates your team and Camellia. This is what lets your tank stand inside the cloud."
+    - "**Tank ahead, then drop the cloud.** Send your tank (Seelah) in to aggro; from range Camellia drops **[[Stinking Cloud]]** (heightened + persistent) on the pack. Enemies re-save every round, so more and more fail over time — half the pack is neutralized turn one."
+    - "**Stack save debuffs.** Her **[[Evil Eye]]** (−4) + Ember's [[Evil Eye]] (−8 total) + Sosiel's [[Visions of Madness|Vision of Madness]] (up to −10) + your mythic path's aura. Her DC tops out around 43 (conjuration has little DC gear), but with save-stacking + re-saves that's plenty on Unfair."
+    - "**Later:** Quicken rod → [[Evil Eye]] (swift), then an instant Quickened [[Stinking Cloud]], so the enemy already has the −4 when the cloud hits."
+    - "**Ambush with hexes:** select [[Evil Eye]] (Armor Class), target an unaware enemy, and charge your whole melee party in as she casts — big first-round hit chance."
+    - "**Melee when safe.** Only send her in with rapiers once the pack is controlled (her defenses aren't great). Buff the tank with [[Protective Luck]] before every fight — it's free."
+footnotes:
+  - "Class split ([[Shaman]] 16 / [[Loremaster]] 3 / [[Titan Fighter]] 1); the four non-Shaman levels land last (17–20) and [[Boon Companion]] keeps her pet fully scaled despite them. Ability increases: WIS at 4/8/12/16, then DEX at 20 to make it an even score."
+  - "[[Loremaster]] Rogue-secret grabbing the Trickster mythic-path crit feat for even higher rapier crit range — works as of the final patch (arguably an oversight). Other strong secret options: Living Finish, [[Opportunist]], a familiar."
+  - "\"Corruptor\" is the name given in the video; the exact Fextralife page name is unconfirmed — verify the exact mythic-ability name in-game."
+  - "Gear names (transcribed from audio, verify exact spellings/locations): Fencer's Gift gloves, Spirit Trackers boots, Feral Goggles, Colman's Ring, Bane of Spirit relic ring, Sage staff, Translucent Needle of Astonishment, Interceptor Rapier, Imp Pad."

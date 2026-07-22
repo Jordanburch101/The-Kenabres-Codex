@@ -1,0 +1,28 @@
+---
+// Mirrors the prototype's `.rows` / `.row` / `.k` / `.v` block (index.html,
+// "Gear & Where to Find It" sections of the Wenduag / Demon Slayer builds).
+// Also usable for the `identity` field, which shares the exact same
+// {k, v} row markup (see the "Core Identity" section in the prototype) —
+// pass an `eyebrow`/`heading` override in that case.
+import Prose from './Prose.astro';
+const {
+  gear, // build.data.gear (or build.data.identity)
+  eyebrow = 'Equipment',
+  heading = 'Gear & Where to Find It',
+} = Astro.props;
+---
+<section class="blk">
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 class="h">{heading}</h2>
+  <div class="rows">
+    {gear.map((row) => (
+      <div class="row">
+        <div class="k">{row.k}</div>
+        <div class="v">
+          <Prose as="span" text={row.v} />
+          {row.flag && <span class="flag" title={row.flag}>&#9432;</span>}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
