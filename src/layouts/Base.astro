@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+import TermTooltip from '../components/TermTooltip.astro';
 const { title = 'The Kenabres Codex' } = Astro.props;
 ---
 <!doctype html>
@@ -10,5 +12,6 @@ const { title = 'The Kenabres Codex' } = Astro.props;
   </head>
   <body>
     <slot />
+    <TermTooltip />
   </body>
 </html>
