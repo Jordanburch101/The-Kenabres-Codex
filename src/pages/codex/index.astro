@@ -63,7 +63,7 @@ for (const list of byCategory.values()) list.sort((a, b) => a.name.localeCompare
 const totalUnused = glossary.filter((e) => usedIn(e).length === 0).length;
 ---
 <Base title="Codex — The Kenabres Codex">
-  <main class="content"><div class="wrap">
+  <div class="wrap">
     <div class="hero">
       <p class="eyebrow">The Kenabres Codex</p>
       <h1 class="btitle">Codex Index</h1>
@@ -122,5 +122,5 @@ const totalUnused = glossary.filter((e) => usedIn(e).length === 0).length;
         </section>
       );
     })}
-  </div></main>
+  </div>
 </Base>
