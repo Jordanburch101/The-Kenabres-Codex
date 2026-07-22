@@ -1,0 +1,5 @@
+name: Persistent Spell
+category: feat
+desc: Target must roll its saving throw twice, taking the worse.
+wikiSlug: Metamagic+(Persistent+Spell)
+icon: persistent-spell.webp
