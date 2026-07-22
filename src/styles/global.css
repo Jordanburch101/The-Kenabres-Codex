@@ -395,7 +395,8 @@
   .rail-toggle button:focus-visible { outline:2px solid var(--bronze-br); outline-offset:1px; }
 
   .nav--build { flex-direction:row; align-items:center; justify-content:space-between; gap:8px; }
-  .nav--build .nav-txt { display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .nav--build .nav-txt { display:flex; flex-direction:column; gap:2px; min-width:0;
+    flex:1 1 auto; text-decoration:none; color:inherit; }
   .rail-star { flex:0 0 auto; appearance:none; border:0; background:transparent; cursor:pointer;
     font-size:14px; line-height:1; padding:2px 3px; color:#8a7550; opacity:0; transition:opacity .12s ease, color .12s ease; }
   .nav--build:hover .rail-star, .nav--build.active .rail-star { opacity:1; }

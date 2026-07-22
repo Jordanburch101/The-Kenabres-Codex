@@ -12,19 +12,19 @@ function Row({ b, activeSlug, starred, onToggle }: {
 }) {
   const name = shortName(b.name);
   return (
-    <a className={`nav nav--build${b.slug === activeSlug ? ' active' : ''}`} href={`/builds/${b.slug}`}>
-      <span className="nav-txt">
+    <div className={`nav nav--build${b.slug === activeSlug ? ' active' : ''}`}>
+      <a className="nav-txt" href={`/builds/${b.slug}`}>
         <span className="nav-name">{name}</span>
         <span className="nav-role">{b.class} · {b.role}</span>
-      </span>
+      </a>
       <button
         type="button"
         className={`rail-star${starred ? ' filled' : ''}`}
         aria-pressed={starred}
         aria-label={starred ? `Unstar ${name}` : `Star ${name}`}
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); onToggle(b.slug); }}
+        onClick={() => onToggle(b.slug)}
       >{starred ? '★' : '☆'}</button>
-    </a>
+    </div>
   );
 }
 
