@@ -407,7 +407,7 @@
     text-align:center; color:#8c7c5d; font-size:12px; font-style:italic; line-height:1.5; }
   .rail-empty-star { display:block; font-size:22px; color:#6d5c3c; margin-bottom:8px; }
 
-  .star-btn { position:absolute; top:14px; right:16px; z-index:2; appearance:none; cursor:pointer;
+  .star-btn { float:right; margin:2px 0 6px 14px; appearance:none; cursor:pointer;
     display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:3px;
     font-family:var(--serif); font-size:12px; font-variant:small-caps; letter-spacing:.06em;
     color:var(--wine); background:rgba(255,250,238,.55); border:1px solid var(--bronze-line); }
