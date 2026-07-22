@@ -15,11 +15,18 @@ export function lintGlossary(input: {
 
   for (const e of entries) {
     const nk = normalizeKey(e.name);
-    const prev = byKey.get(nk);
-    if (prev) {
-      issues.push({ level: 'error', kind: 'collision',
-        message: `"${e.name}" collides with "${prev.name}" (normalized "${nk}")` });
-    } else byKey.set(nk, e);
+    // Mirror buildGlossaryIndex: name + all aliases share one keyspace, so any
+    // of them can collide with another entry's name/alias, not just the name.
+    for (const key of [e.name, ...(e.aliases ?? [])]) {
+      const keyNk = normalizeKey(key);
+      const prev = byKey.get(keyNk);
+      if (prev && prev !== e) {
+        issues.push({ level: 'error', kind: 'collision',
+          message: `"${key}" (normalized "${keyNk}") on "${e.name}" collides with "${prev.name}"` });
+      } else if (!prev) {
+        byKey.set(keyNk, e);
+      }
+    }
 
     if (e.wikiSlug) {
       const prevSlug = bySlug.get(e.wikiSlug);

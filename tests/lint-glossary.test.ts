@@ -12,6 +12,16 @@ describe('lintGlossary', () => {
     });
     expect(issues.some((i) => i.kind === 'collision' && i.level === 'error')).toBe(true);
   });
+  it('flags an alias that collides with another entry as an error', () => {
+    const issues = lintGlossary({
+      entries: [
+        { name: 'Deadly Aim', category: 'feat', desc: 'a', aliases: [] },
+        { name: 'Precise Shot', category: 'feat', desc: 'b', aliases: ['Deadly-Aim'] },
+      ] as any,
+      iconFiles: new Set(), referencedNames: new Set(['deadly aim','precise shot']),
+    });
+    expect(issues.some((i) => i.kind === 'collision' && i.level === 'error')).toBe(true);
+  });
   it('flags a missing icon file', () => {
     const issues = lintGlossary({
       entries: [{ name: 'A', category: 'feat', desc: 'x', icon: 'a.webp', aliases: [] }] as any,
