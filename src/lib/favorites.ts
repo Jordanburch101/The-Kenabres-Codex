@@ -24,6 +24,8 @@ const K_RECENT = 'kc:recent';
 const K_VIEW = 'kc:view';
 const RECENT_CAP = 10;
 
+let storageListenerBound = false;
+
 function readArray(storage: StorageLike, key: string): string[] {
   try {
     const raw = storage.getItem(key);
@@ -42,7 +44,8 @@ export function createFavoritesStore(storage: StorageLike): FavoritesStore {
   const listeners = new Set<() => void>();
   const emit = () => listeners.forEach((cb) => cb());
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && !storageListenerBound) {
+    storageListenerBound = true;
     window.addEventListener('storage', (e) => {
       if (e.key && e.key.startsWith('kc:')) emit();
     });
