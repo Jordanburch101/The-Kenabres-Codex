@@ -5,6 +5,10 @@ site; each build and each glossary term is a schema-validated **YAML** content
 collection entry. Design + plan live in `docs/superpowers/specs/` and
 `docs/superpowers/plans/`.
 
+**New here? Read [`docs/superpowers/phase-1-outcome.md`](docs/superpowers/phase-1-outcome.md) first** —
+it captures the key decisions (content model, section-title rule), deploy specifics, deferred
+follow-ups, and Phase 2/3 scope. To add a build, use the `add-build` skill.
+
 ## Commands
 
 This project uses **Bun** — use `bun`/`bunx`, never `npm`/`npx`/`node`.
