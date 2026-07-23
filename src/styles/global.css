@@ -1,5 +1,5 @@
   :root {
-    --surround:  #0e0a06;
+    --surround:  #010101; /* matches the logo banner's flat background so it blends */
     --surround-2:#1d140b;
     --parch:     #eaddbf;
     --parch-2:   #e2d4b3;
@@ -36,7 +36,7 @@
     font-size: 16.5px;
     line-height: 1.62;
     background:
-      radial-gradient(130% 80% at 50% -10%, var(--surround-2), var(--surround) 62%),
+      radial-gradient(120% 75% at 50% 125%, var(--surround-2), transparent 60%),
       var(--surround);
     background-attachment: fixed;
   }
