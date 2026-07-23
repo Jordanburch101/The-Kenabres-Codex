@@ -530,3 +530,11 @@
     .dir-field { flex: 1 1 40%; }
     .dir-select { width: 100%; min-width: 0; }
   }
+
+  /* ---- Masthead logo banner ---- */
+  .masthead-logo { display: block; }
+  .masthead-logo img {
+    display: block; width: 100%; max-width: 620px; height: auto; margin: 0 auto;
+    filter: drop-shadow(0 6px 18px rgba(0,0,0,.6));
+  }
+  @media (max-width: 720px) { .masthead-logo img { max-width: 92%; } }
