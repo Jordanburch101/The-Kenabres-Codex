@@ -1,48 +1,22 @@
 ---
-// Temporary home page (Phase 2 will replace this with the full directory:
-// cards, filters, search). For now, a simple styled list of the 6 builds
-// plus a link into the auto-generated Codex index.
+// Home directory: sorted build cards + search/Kind/Role/Class filters.
+// All cards render to static HTML at build time; BuildDirectory (client:load)
+// layers on search, filtering, and per-card favorite stars.
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import BuildDirectory from '../components/BuildDirectory';
+import { toDirBuild, sortBuilds, facets } from '../lib/directory';
 
-const builds = (await getCollection('builds'))
-  .map((b) => b.data)
-  .sort((a, b) => a.name.localeCompare(b.name));
-
-const KIND_LABEL: Record<string, string> = { mc: 'MC', companion: 'Companion', mercenary: 'Mercenary' };
-const kindLabel = (k: string) => KIND_LABEL[k] ?? (k.charAt(0).toUpperCase() + k.slice(1));
+const builds = sortBuilds((await getCollection('builds')).map((b) => toDirBuild(b.data)));
+const facetData = facets(builds);
 ---
 <Base title="The Kenabres Codex">
   <div class="wrap">
-    <div class="hero">
+    <div class="dir-head">
       <p class="eyebrow">Companion &amp; Mercenary Builds</p>
-      <h2 class="btitle">Choose Your Champion</h2>
-      <p class="dim">Guides forged in the ashes of the Worldwound — one page per build, each cross-linked to a shared codex of every feat, spell, and mechanic it uses.</p>
+      <h2 class="btitle">Browse the Builds</h2>
+      <p class="lead">Detailed WOTR build guides — one page each, with stats, level-by-level progression, gear, and tactics. Every feat, spell, and mechanic links to a shared codex you can look up in a click.</p>
     </div>
-
-    <section class="blk">
-      <div class="rows">
-        {builds.map((b) => (
-          <a class="row build-row" href={`/builds/${b.slug}`}>
-            <span class="k">{b.name}</span>
-            <span class="v">
-              {b.role}
-              {b.class && ` — ${b.class}${b.archetype ? ` (${b.archetype})` : ''}`}
-              <span class="dim"> · {kindLabel(b.kind)}</span>
-            </span>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <p class="dim" style="margin-top: 32px;">
-      <a href="/codex">Browse the Codex — every feat, spell &amp; mechanic referenced across these builds →</a>
-    </p>
+    <BuildDirectory client:load builds={builds} facets={facetData} />
   </div>
 </Base>
-
-<style>
-  .build-row { text-decoration: none; color: inherit; transition: background .12s ease; }
-  .build-row:hover { background: rgba(120, 92, 50, .14); }
-  .build-row:hover .k { color: var(--wine); }
-</style>
