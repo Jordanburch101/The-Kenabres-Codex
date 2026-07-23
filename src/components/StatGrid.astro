@@ -1,21 +1,30 @@
 ---
-// Mirrors the prototype's `.stats` block (index.html, "Ability Scores" /
-// "Priorities" section of the Wenduag / Demon Slayer builds).
+// "Ability Scores" / "Priorities" block. Priority stats (emphasis: hi) are
+// bronze-accented; dump stats recede; numeric values render big, word values
+// as labels. Layout switches between a full 6-col grid (MC) and a left-aligned
+// capped layout (sparse companions). See docs/superpowers/specs/2026-07-24-*.
 import Prose from './Prose.astro';
+import { valueKind, statGridClass } from '../lib/stats';
 const { scores } = Astro.props; // build.data.abilityScores
 const order = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+const present = order.filter((k) => scores[k]);
+const gridClass = statGridClass(present.length);
 ---
 <section class="blk">
   <p class="eyebrow">Ability Scores</p>
   <h2 class="h">Priorities</h2>
-  <div class="stats">
-    {order.map((k) => scores[k] && (
-      <div class={`stat ${scores[k].emphasis ?? ''}`}>
-        <span class="abbr">{k[0].toUpperCase() + k.slice(1)}</span>
-        <span class="num">{scores[k].value}</span>
-        {scores[k].tag && <span class="tag">{scores[k].tag}</span>}
-      </div>
-    ))}
+  <div class={`stats ${gridClass}`} style={`--stat-n:${present.length}`}>
+    {present.map((k) => {
+      const s = scores[k];
+      const kind = valueKind(s.value);
+      return (
+        <div class={`stat ${s.emphasis ?? ''}`}>
+          <span class="abbr">{k[0].toUpperCase() + k.slice(1)}</span>
+          <span class={kind}>{s.value}</span>
+          {s.tag && <span class="tag">{s.tag}</span>}
+        </div>
+      );
+    })}
   </div>
   {scores.note && <Prose text={scores.note} class="dim" />}
 </section>

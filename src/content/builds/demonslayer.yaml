@@ -36,7 +36,7 @@ badges:
 summary: Trades the ranger's chosen favored enemy for a permanent bonus against **all three demon subtypes** — a monstrous advantage in a campaign where most of what you fight is demons. Stack the demon bonuses, add an animal companion (and **[[Aivu]]**), and become a point-and-click bow that deletes the Abyss. Very simple to pilot, strong from early game on.
 abilityScores:
   str:
-    value: "—"
+    value: "base"
     tag: "base*"
     emphasis: dump
   dex:
@@ -48,7 +48,7 @@ abilityScores:
     tag: or Str
     emphasis: hi
   int:
-    value: "—"
+    value: "keep"
     tag: don't drop
   wis:
     value: "18"
