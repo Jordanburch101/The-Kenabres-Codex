@@ -26,16 +26,18 @@ const builds: RailBuild[] = (await getCollection('builds')).map((b) => ({
     <div class="rail-rule"></div>
   </div>
 
-  <RailNav client:load builds={builds} activeSlug={activeSlug} />
-
   {sections.length > 0 && (
-    <nav class="rail-list rail-onpage">
+    <nav class="rail-list rail-onpage rail-onpage--top">
       <div class="rail-div">On this page</div>
-      {sections.map((s) => (
-        <a class="rail-sec" href={`#${s.id}`}>{s.label}</a>
-      ))}
+      <div class="rail-toc">
+        {sections.map((s) => (
+          <a class="rail-sec" href={`#${s.id}`}>{s.label}</a>
+        ))}
+      </div>
     </nav>
   )}
+
+  <RailNav client:load builds={builds} activeSlug={activeSlug} />
 
   <nav class="rail-list">
     <div class="rail-div">Reference</div>
@@ -45,3 +47,37 @@ const builds: RailBuild[] = (await getCollection('builds')).map((b) => ({
     </a>
   </nav>
 </aside>
+
+<script>
+  // Scroll-spy: highlight the "On this page" link for the section you're reading —
+  // the last section whose top has scrolled above a line near the viewport top.
+  const links = [...document.querySelectorAll('.rail-toc a[href^="#"]')];
+  if (links.length) {
+    const sections = links
+      .map((a) => document.getElementById(a.getAttribute('href').slice(1)))
+      .filter((el) => !!el);
+    let current = '';
+    const setActive = (id) => {
+      if (id === current) return;
+      current = id;
+      links.forEach((a) => a.classList.toggle('on', a.getAttribute('href').slice(1) === id));
+    };
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const line = 96;
+      let active = sections.length ? sections[0].id : '';
+      for (const s of sections) {
+        if (s.getBoundingClientRect().top <= line) active = s.id;
+        else break;
+      }
+      if (active) setActive(active);
+    };
+    const onScroll = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+</script>
